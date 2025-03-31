@@ -8,8 +8,8 @@
     
             <!-- Menú de navegación en columna -->
             <nav class="flex flex-col items-center md:items-start space-y-2">
-                <a href="#" class="hover:underline">Sobre Nosotros</a>
-                <a href="#" class="hover:underline">Productos</a>
+                <a href="/sobre-nostros" class="hover:underline">Sobre Nosotros</a>
+                <a href="/products-page" class="hover:underline">Productos</a>
                 <a href="/product-detail-page/quikipad" class="hover:underline">Comprar QuikiPad</a>
             </nav>
     

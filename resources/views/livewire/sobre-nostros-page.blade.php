@@ -30,8 +30,7 @@
 <section class="bg-black text-white py-32 text-center w-full min-h-[80vh] flex flex-col justify-center">
     <h2 class="text-7xl font-bold">Nuestra visión</h2>
     <p class="mt-6 text-lg max-w-5xl mx-auto">
-        "Creiem en l'energia de les idees fresques, el respecte pel medi ambient, 
-        i en oferir productes d'alta qualitat que connectin amb els jugadors de tot el món."
+        "Creemos en la energía de las ideas frescas, el respeto por el medio ambiente, y en ofrecer productos de alta calidad que conecten con los jugadores de todo el mundo.
     </p>
 </section>
 

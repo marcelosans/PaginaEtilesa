@@ -1,4 +1,4 @@
-<div class="flex flex-col md:flex-row items-center justify-between p-4 md:p-8 min-h-screen bg-gray-50">
+<div class="flex flex-col md:flex-row items-center justify-between p-4 md:p-8 min-h-screen mt-[3em] bg-gray-50">
     <!-- Columna de imágenes del producto -->
     <div class="w-full md:w-1/2 md:sticky md:top-20" x-data="{ mainImage: '{{url('storage',$products->images[0])}}' }">
         <!-- Imagen principal -->
@@ -50,26 +50,28 @@
         </div>
         
         <!-- Selector de cantidad -->
-        <div class="mt-8">
-            <h3 class="text-sm font-medium text-gray-700 mb-2">Cantidad</h3>
-            <div class="flex items-center mb-6">
-                <button class="flex items-center justify-center w-10 h-10 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
-                    </svg>
-                </button>
-                <input type="number" min="1" value="1" class="w-16 h-10 text-center border-t border-b border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50">
-                <button class="flex items-center justify-center w-10 h-10 bg-gray-100 border border-gray-300 rounded-r-lg hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
-                    </svg>
-                </button>
-            </div>
+        <div class="flex items-center">
+            <button wire:click="decreaseQty" class="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-l-md bg-gray-100 hover:bg-gray-200">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
+                </svg>
+            </button>
+            <input 
+                type="number" 
+                wire:model.live="quantity" 
+                min="1" 
+                class="w-12 h-8 text-center border-t border-b border-gray-300 text-sm focus:outline-none"
+            >
+            <button wire:click="increaseQty" class="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-r-md bg-gray-100 hover:bg-gray-200">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                </svg>
+            </button>
         </div>
         
         <!-- Botones de acción -->
         <div class="flex flex-col sm:flex-row gap-3 mt-4">
-            <button class="w-full sm:w-3/5 bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg shadow transition duration-200 flex items-center justify-center">
+            <button wire:click="addToCart({{ $products->id }})" class="w-full sm:w-3/5 bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg shadow transition duration-200 flex items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                 </svg>

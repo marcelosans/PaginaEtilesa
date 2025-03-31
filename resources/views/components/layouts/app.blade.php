@@ -11,15 +11,18 @@
     </head>
     <body class= "bg-gray-50 dark:bg-slate-700">
 
-        @if (!request()->is('login') )
+        @if (!request()->is('login' ) && !request()->is('register') && !request()->is('forgot-password') && !request()->is('password-reset'))
         @livewire('partials.navbar')
         @endif
         <main>
         {{ $slot }}
         </main>
-        @if (!request()->is('login') )
+        @if (!request()->is('login') && !request()->is('register') && !request()->is('forgot-password') && !request()->is('password-reset')) 
         @livewire('partials.footer')
         @endif
         @livewireScripts
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        
+        <x-livewire-alert::scripts />
     </body>
 </html>

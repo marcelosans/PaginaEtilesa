@@ -7,10 +7,13 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "arnoldwamae/livewire-alert": "^1.0",
         "filament/filament": "^3.2.57",
+        "jantinnerezo/livewire-alert": "^3.0",
         "laravel/framework": "^11.31",
         "laravel/tinker": "^2.9",
-        "livewire/livewire": "^3.5"
+        "livewire/livewire": "^3.5",
+        "stripe/stripe-php": "^16.6"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",

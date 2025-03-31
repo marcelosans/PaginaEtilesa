@@ -1,190 +1,57 @@
-<div class="min-h-screen relative overflow-hidden">
-    <!-- Video background -->
-    <div class="absolute inset-0 w-full h-full z-0">
-        <video 
-            src="{{ asset('/vid/login.mp4') }}" 
-            class="w-full h-full object-cover"
-            style="pointer-events: none;"
-            loop
-            muted
-            autoplay
-            playsinline
-        ></video>
-    </div>
-
-    <div class="relative min-h-screen flex items-center justify-center p-4 z-10">
-        <div class="w-full max-w-4xl overflow-hidden rounded-lg shadow-2xl bg-black bg-opacity-40 backdrop-blur-sm">
-            <!-- Main container with two panels side by side -->
-            <div class="flex flex-col md:flex-row h-full">
-                <!-- First panel - changes based on active form -->
-                <div class="md:w-1/2 transition-all duration-500 ease-in-out overflow-hidden"
-                     x-data="{ showLogin: @entangle('showLoginForm') }">
-                    
-                    <!-- Login form (shown on left when login is active) -->
-                    <div x-show="showLogin"
-                         x-transition:enter="transition ease-out duration-500"
-                         x-transition:enter-start="opacity-0 transform translate-x-full"
-                         x-transition:enter-end="opacity-100 transform translate-x-0"
-                         x-transition:leave="transition ease-in duration-500"
-                         x-transition:leave-start="opacity-100 transform translate-x-0"
-                         x-transition:leave-end="opacity-0 transform -translate-x-full"
-                         class="bg-white h-full p-8 flex flex-col justify-center">
-                        
-                        <div class="text-center mb-8">
-                            <h2 class="text-3xl font-bold text-gray-800">Iniciar Sesión</h2>
-                        </div>
-
-                        @if($loginError)
-                            <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-6" role="alert">
-                                <p>{{ $loginError }}</p>
-                            </div>
-                        @endif
-
-                        @if($registerSuccess)
-                            <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-6" role="alert">
-                                <p>{{ $registerSuccess }}</p>
-                            </div>
-                        @endif
-
-                        <form wire:submit.prevent="login" class="space-y-4">
-                            <div>
-                                <input type="email" id="email" wire:model.defer="email" 
-                                       placeholder="Email"
-                                       class="block w-full px-4 py-3 bg-gray-100 border-0 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 @error('email') border-red-500 @enderror">
-                                @error('email') <span class="text-red-500 text-xs mt-1">{{ $message }}</span> @enderror
-                            </div>
-
-                            <div>
-                                <input type="password" id="password" wire:model.defer="password" 
-                                       placeholder="Contraseña"
-                                       class="block w-full px-4 py-3 bg-gray-100 border-0 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 @error('password') border-red-500 @enderror">
-                                @error('password') <span class="text-red-500 text-xs mt-1">{{ $message }}</span> @enderror
-                            </div>
-
-                            <div class="text-right">
-                                <button type="button" wire:click="forgotPassword" class="text-sm font-medium text-gray-600 hover:text-purple-500">
-                                    ¿Olvidaste tu contraseña?
-                                </button>
-                            </div>
-
-                            <div>
-                                <button type="submit" 
-                                        class="w-full flex justify-center py-3 px-4 border border-transparent rounded-3xl text-sm font-medium text-white bg-red-500 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
-                                    <span wire:loading.remove wire:target="login">SIGN IN</span>
-                                    <span wire:loading wire:target="login">
-                                        <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                                        </svg>
-                                        Procesando...
-                                    </span>
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                    
-                    <!-- Welcome panel for register (shown on left when register is active) -->
-                    <div x-show="!showLogin"
-                         x-transition:enter="transition ease-out duration-500"
-                         x-transition:enter-start="opacity-0 transform translate-x-full"
-                         x-transition:enter-end="opacity-100 transform translate-x-0"
-                         x-transition:leave="transition ease-in duration-500"
-                         x-transition:leave-start="opacity-100 transform translate-x-0"
-                         x-transition:leave-end="opacity-0 transform -translate-x-full"
-                         class="bg-red-500 h-full p-12 flex flex-col justify-center items-center text-center">
-                        <h3 class="text-3xl font-bold text-white mb-6">¡Bienvenido!</h3>
-                        <p class="text-white text-opacity-90 mb-8">
-                            ¿Ya tienes una cuenta? Inicia sesión para acceder a nuestra plataforma.
-                        </p>
-                        <button wire:click="toggleForm" 
-                                class="px-10 py-2 border-2 border-white rounded-3xl text-white font-medium hover:bg-white hover:text-red-500 transition-colors">
-                            SIGN IN
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Second panel - changes based on active form -->
-                <div class="md:w-1/2 transition-all duration-500 ease-in-out overflow-hidden"
-                     x-data="{ showLogin: @entangle('showLoginForm') }">
-                    
-                    <!-- Welcome panel for login (shown on right when login is active) -->
-                    <div x-show="showLogin"
-                         x-transition:enter="transition ease-out duration-500"
-                         x-transition:enter-start="opacity-0 transform -translate-x-full"
-                         x-transition:enter-end="opacity-100 transform translate-x-0"
-                         x-transition:leave="transition ease-in duration-500"
-                         x-transition:leave-start="opacity-100 transform translate-x-0"
-                         x-transition:leave-end="opacity-0 transform translate-x-full"
-                         class="bg-red-500 h-full p-12 flex flex-col justify-center items-center text-center">
-                        <h3 class="text-3xl font-bold text-white mb-6">Hello, Friend!</h3>
-                        <p class="text-white text-opacity-90 mb-8">
-                            Enter your personal details and start journey with us
-                        </p>
-                        <button wire:click="toggleForm" 
-                                class="px-10 py-2 border-2 border-white rounded-3xl text-white font-medium hover:bg-white hover:text-red-500 transition-colors">
-                            SIGN UP
-                        </button>
-                    </div>
-                    
-                    <!-- Register form (shown on right when register is active) -->
-                    <div x-show="!showLogin"
-                         x-transition:enter="transition ease-out duration-500"
-                         x-transition:enter-start="opacity-0 transform -translate-x-full"
-                         x-transition:enter-end="opacity-100 transform translate-x-0"
-                         x-transition:leave="transition ease-in duration-500"
-                         x-transition:leave-start="opacity-100 transform translate-x-0"
-                         x-transition:leave-end="opacity-0 transform translate-x-full"
-                         class="bg-white h-full p-8 flex flex-col justify-center">
-                        <div class="text-center mb-8">
-                            <h2 class="text-3xl font-bold text-gray-800">Crear Cuenta</h2>
-                        </div>
-
-                        <form wire:submit.prevent="register" class="space-y-4">
-                            <div>
-                                <input type="text" id="name" wire:model.defer="name" 
-                                       placeholder="Nombre"
-                                       class="block w-full px-4 py-3 bg-gray-100 border-0 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 @error('name') border-red-500 @enderror">
-                                @error('name') <span class="text-red-500 text-xs mt-1">{{ $message }}</span> @enderror
-                            </div>
-
-                            <div>
-                                <input type="email" id="register_email" wire:model.defer="email" 
-                                       placeholder="Email"
-                                       class="block w-full px-4 py-3 bg-gray-100 border-0 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 @error('email') border-red-500 @enderror">
-                                @error('email') <span class="text-red-500 text-xs mt-1">{{ $message }}</span> @enderror
-                            </div>
-
-                            <div>
-                                <input type="password" id="register_password" wire:model.defer="password" 
-                                       placeholder="Contraseña"
-                                       class="block w-full px-4 py-3 bg-gray-100 border-0 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 @error('password') border-red-500 @enderror">
-                                @error('password') <span class="text-red-500 text-xs mt-1">{{ $message }}</span> @enderror
-                            </div>
-
-                            <div>
-                                <input type="password" id="password_confirmation" wire:model.defer="passwordConfirmation" 
-                                       placeholder="Confirmar Contraseña"
-                                       class="block w-full px-4 py-3 bg-gray-100 border-0 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 @error('passwordConfirmation') border-red-500 @enderror">
-                                @error('passwordConfirmation') <span class="text-red-500 text-xs mt-1">{{ $message }}</span> @enderror
-                            </div>
-
-                            <div>
-                                <button type="submit" 
-                                        class="w-full flex justify-center py-3 px-4 border border-transparent rounded-3xl text-sm font-medium text-white bg-red-500 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
-                                    <span wire:loading.remove wire:target="register">SIGN UP</span>
-                                    <span wire:loading wire:target="register">
-                                        <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                                        </svg>
-                                        Procesando...
-                                    </span>
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+<div class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <!-- Video de fondo -->
+    <video autoplay muted loop class="absolute h-full w-full object-cover">
+        <source src="{{ asset('vid/login.mp4') }}" type="video/mp4">
+        <!-- Puedes agregar un fallback con una imagen estática -->
+    </video>
+    
+    <!-- Gradiente para mejorar la visibilidad del contenido sobre el video -->
+    <div class="absolute inset-0 bg-gradient-to-br from-blue-500 via-purple-600 to-purple-800 opacity-90"></div>
+    
+    <!-- Contenedor del login -->
+    <div class="z-10 max-w-md w-full bg-white rounded-3xl shadow-xl p-8">
+        <!-- Logo ETILESA como imagen -->
+        <div class="flex justify-center mb-6">
+            <img src="{{ asset('img/logoEtilesa.png') }}" alt="ETILESA" class="h-12">
         </div>
+        
+        <h2 class="text-lg font-medium text-center text-gray-700 mb-8">Iniciar Sesión</h2>
+        
+        <form wire:submit="save">
+            <!-- Correo -->
+            <div class="mb-4">
+                <input wire:model="email" id="email" type="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Correo">
+                @error('email') <span class="text-red-500 text-sm mt-1">{{ $message }}</span> @enderror
+            </div>
+            
+            <!-- Contraseña -->
+            <div class="mb-2">
+                <input wire:model="password" id="password" type="password" name="password" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Contraseña">
+                @error('password') <span class="text-red-500 text-sm mt-1">{{ $message }}</span> @enderror
+            </div>
+            
+            <!-- Mensaje de error de autenticación -->
+            @if (session()->has('error'))
+                <div class="mb-4 text-sm text-red-500">
+                    {{ session('error') }}
+                </div>
+            @endif
+            
+            <!-- Enlace de olvido de contraseña -->
+            <div class="mb-6">
+                <a href="#" class="text-sm text-gray-600 hover:text-purple-500">No recuerdas la contraseña</a>
+            </div>
+            
+            <!-- Botón de inicio de sesión -->
+            <button type="submit" class="w-full bg-purple-500 text-white py-3 px-4 rounded-full hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 transition duration-200">
+                Inicia Sesión
+            </button>
+        </form>
+        
+        <!-- Enlace de registro -->
+        <p class="text-center mt-6 text-sm text-gray-600">
+            ¿No tienes cuenta? 
+            <a href="/register" class="text-purple-500 hover:text-purple-700">Regístrate</a>
+        </p>
     </div>
 </div>

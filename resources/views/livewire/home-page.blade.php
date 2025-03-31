@@ -53,17 +53,37 @@
                         <div class="hs-carousel-body absolute top-0 bottom-0 start-0 flex flex-nowrap transition-transform duration-700 opacity-0">
                             <div class="hs-carousel-slide px-1">
                                 <div class="flex justify-center h-full bg-gray-100 p-6">
-                                    <span class="self-center text-sm text-gray-800"><img src="{{ asset('img/raspberry.png') }}" alt=""></span>
+                                    <span class="self-center text-sm text-gray-800"><img src="{{ asset('img/ps1.png') }}" alt=""></span>
                                 </div>
                             </div>
                             <div class="hs-carousel-slide px-1">
                                 <div class="flex justify-center h-full bg-gray-200 p-6">
-                                    <span class="self-center text-sm text-gray-800"><img src="{{ asset('img/raspberry.png') }}" alt=""></span>
+                                    <span class="self-center text-sm text-gray-800"><img src="{{ asset('img/snes.png') }}" alt=""></span>
                                 </div>
                             </div>
                             <div class="hs-carousel-slide px-1">
                                 <div class="flex justify-center h-full bg-gray-300 p-6">
-                                    <span class="self-center text-sm text-gray-800"><img src="{{ asset('img/raspberry.png') }}" alt=""></span>
+                                    <span class="self-center text-sm text-gray-800"><img src="{{ asset('img/psp.png') }}" alt=""></span>
+                                </div>
+                            </div>
+                            <div class="hs-carousel-slide px-1">
+                                <div class="flex justify-center h-full bg-gray-300 p-6">
+                                    <span class="self-center text-sm text-gray-800"><img src="{{ asset('img/gba.png') }}" alt=""></span>
+                                </div>
+                            </div>
+                            <div class="hs-carousel-slide px-1">
+                                <div class="flex justify-center h-full bg-gray-300 p-6">
+                                    <span class="self-center text-sm text-gray-800"><img src="{{ asset('img/gbc.png') }}" alt=""></span>
+                                </div>
+                            </div>
+                            <div class="hs-carousel-slide px-1">
+                                <div class="flex justify-center h-full bg-gray-300 p-6">
+                                    <span class="self-center text-sm text-gray-800"><img src="{{ asset('img/nes.png') }}" alt=""></span>
+                                </div>
+                            </div>
+                            <div class="hs-carousel-slide px-1">
+                                <div class="flex justify-center h-full bg-gray-300 p-6">
+                                    <span class="self-center text-sm text-gray-800"><img src="{{ asset('img/snes.png') }}" alt=""></span>
                                 </div>
                             </div>
                         </div>
@@ -97,7 +117,7 @@
                         <li>• Sistema Operativo Retro Pie</li>
                         <li>• 4-5 Horas de Batería</li>
                     </ul>
-                    <a href="#" class="mt-6 inline-block bg-white text-black px-6 py-3 rounded-full text-lg font-semibold shadow-lg hover:bg-gray-200 transition">
+                    <a href="/product-detail-page/quikipad" class="mt-6 inline-block bg-white text-black px-6 py-3 rounded-full text-lg font-semibold shadow-lg hover:bg-gray-200 transition">
                         Comprar QuikiPad
                     </a>
                 </div>

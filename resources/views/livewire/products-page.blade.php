@@ -1,4 +1,4 @@
-<div class="container mx-auto pt-8 pb-6 px-4 bg-gray-50 max-w-7xl">
+<div class="container mt-[3em] mx-auto pt-8 pb-6 px-4 bg-gray-50 max-w-7xl">
     <h1 class="text-2xl font-bold mb-4 text-black">Productos</h1>
     
     <div class="flex flex-col md:flex-row gap-4">
@@ -25,33 +25,54 @@
                     </div>
                     
                     <!-- Filtro de rango de precio con estilo similar a la imagen -->
-                    <div class="mb-4">
-                        <div class="flex items-center justify-between mb-2">
-                            <h3 class="font-medium text-black text-sm">Precio</h3>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            </svg>
-                        </div>
-                        
-                        <!-- Slider de rango de precios -->
-                        <div class="mb-3 px-1">
-                            <div class="relative h-1 rounded-full bg-gray-200">
-                                <div class="absolute h-1 rounded-full bg-purple-500" style="left: 5%; right: 5%;"></div>
-                                <div class="absolute h-4 w-4 rounded-full bg-white border border-gray-300 shadow-md" style="top: -6px; left: 5%;"></div>
-                                <div class="absolute h-4 w-4 rounded-full bg-white border border-gray-300 shadow-md" style="top: -6px; right: 5%;"></div>
-                            </div>
-                        </div>
-                        
-                        <!-- Campos de entrada de precios -->
-                        <div class="flex items-center space-x-2">
-                            <div class="w-1/2">
-                                <input type="text" id="min_price" name="min_price" value="43€" class="w-full border border-gray-300 rounded-md px-2 py-1 text-center text-black text-sm focus:outline-none focus:ring-1 focus:ring-purple-500">
-                            </div>
-                            <div class="text-black text-sm">—</div>
-                            <div class="w-1/2">
-                                <input type="text" id="max_price" name="max_price" value="4141€" class="w-full border border-gray-300 rounded-md px-2 py-1 text-center text-black text-sm focus:outline-none focus:ring-1 focus:ring-purple-500">
-                            </div>
-                        </div>
-                    </div>
+                   <div class="mb-4">
+    <div class="flex items-center justify-between mb-2">
+        <h3 class="font-medium text-black text-sm">Precio</h3>
+    </div>
+    
+    <!-- Slider de rango de precios -->
+    <div class="mb-3 px-1">
+        <input 
+            type="range" 
+            wire:model.live="min_price"
+            min="{{ $min_product_price }}" 
+            max="{{ $max_product_price }}" 
+            step="1"
+            class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+        >
+        <input 
+            type="range" 
+            wire:model.live="max_price"
+            min="{{ $min_product_price }}" 
+            max="{{ $max_product_price }}" 
+            step="1"
+            class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer -mt-2"
+        >
+    </div>
+    
+    <!-- Campos de entrada de precios -->
+    <div class="flex items-center space-x-2">
+        <div class="w-1/2">
+            <input 
+                type="number" 
+                wire:model.live="min_price" 
+                min="{{ $min_product_price }}"
+                max="{{ $max_product_price }}"
+                class="w-full border border-gray-300 rounded-md px-2 py-1 text-center text-black text-sm focus:outline-none focus:ring-1 focus:ring-purple-500"
+            >
+        </div>
+        <div class="text-black text-sm">—</div>
+        <div class="w-1/2">
+            <input 
+                type="number" 
+                wire:model.live="max_price" 
+                min="{{ $min_product_price }}"
+                max="{{ $max_product_price }}"
+                class="w-full border border-gray-300 rounded-md px-2 py-1 text-center text-black text-sm focus:outline-none focus:ring-1 focus:ring-purple-500"
+            >
+        </div>
+    </div>
+</div>
                     
                     
                 </form>
@@ -64,7 +85,9 @@
                 <!-- Producto 1 -->
             @foreach($products as $product)
             <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 flex flex-col">
-                <img src="{{ url('storage', $product->images[0]) }}" alt="{{ $product->name }}" class="w-full h-32 object-cover">
+                <a href="/product-detail-page/{{$product->slug}}">
+                    <img src="{{ url('storage', $product->images[0]) }}" alt="{{ $product->name }}" class="w-full h-32 object-cover">
+                </a>
                 <div class="p-3 flex flex-col flex-grow">
                     <h3 class="text-sm font-semibold mt-1 text-black">{{ $product->name }}</h3>
                     <p class="text-black text-xs mt-1 line-clamp-2">{{ $product->description }}</p>
@@ -73,7 +96,11 @@
                     </div>
                     <br>
                     <!-- Botón en la parte inferior y con ancho completo -->
-                    <a class="bg-purple-600 text-white py-2 text-xs rounded-md hover:bg-purple-700 transition mt-auto w-full text-center">Ver Detalle</a>
+                    <a wire:click.prevent="addToCart({{ $product->id }})" href="#" class="bg-purple-600 text-white py-2 text-xs rounded-md hover:bg-purple-700 transition mt-auto w-full text-center">
+                        <span wire:loading.remove wire:target='addToCart({{ $product->id }})'>Añadir al Carrito</span>  <span wire:loading wire:target='addToCart({{ $product->id }})'>Añadiendo...</span>
+                    </a>
+
+                    
                 </div>
             </div>
             
