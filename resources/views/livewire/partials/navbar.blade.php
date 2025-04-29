@@ -1,4 +1,4 @@
-<header id="navbar" wire:ignore class="w-full fixed top-0 left-0 z-50 px-8 py-4 flex items-center justify-between bg-white bg-opacity-0 text-white transition-all duration-300">
+<header id="navbar" wire:ignore.self class="w-full fixed top-0 left-0 z-50 px-8 py-4 flex items-center justify-between bg-white bg-opacity-0 text-white transition-all duration-300">
     <!-- Logo -->
     <div>
         <a href="/">
@@ -13,22 +13,24 @@
 
     <!-- Navegación Desktop -->
     <nav class="hidden md:flex flex-row items-center gap-8 font-semibold">
-        <a href="/product-detail-page/quikipad" class="nav-link hover:text-gray-400 transition">Quikipad</a>
-        <a href="/sobre-nosotros" class="nav-link hover:text-gray-400 transition">Sobre Nosotros</a>
-        <a href="/products-page" class="nav-link hover:text-gray-400 transition">Comprar</a>
+        <a href="/product-detail-page/quikipad" class="nav-link hover:text-gray-400 transition">{{ __('navbar.quikipad') }}</a>
+        <a href="/sobre-nosotros" class="nav-link hover:text-gray-400 transition">{{ __('navbar.about_us') }}</a>
+        <a href="/products-page" class="nav-link hover:text-gray-400 transition">{{ __('navbar.buy') }}</a>
+        
+        <!-- Selector de idiomas con Livewire -->
+        <livewire:language-switcher />
         
         <!-- Carrito de compras y Autenticación -->
         <div class="flex items-center gap-3">
             <a href="/carrito" class="nav-link text-2xl flex items-center hover:text-gray-400 transition">
                 <i class="fa-solid fa-cart-shopping"></i>
-                <span class="py-1 px-2 rounded-full text-xs font-medium bg-purple-500 text-white">{{$this->total_count}}</span>
+                <span class="py-1 px-2 rounded-full text-xs font-medium bg-purple-500 text-white">{{$total_count}}</span>
             </a>
 
             @guest
             <!-- Botón Iniciar Sesión -->
             <a href="{{ route('login') }}" class="nav-button bg-black text-white px-6 py-2 rounded-full shadow-md font-semibold hover:bg-gray-800 transition">
-                Iniciar Sesión
-            </a>
+                @lang('navbar.login')</a>
             @endguest
 
             @auth
@@ -45,14 +47,13 @@
                     transition-all duration-300 ease-in-out 
                     border border-gray-200 z-50">
                     <a href="/my-orders" class="block px-4 py-2 hover:bg-gray-100 rounded-t-lg text-sm">
-                        Mis Pedidos
+                        {{ __('navbar.my_orders') }}
                     </a>
                     <a href="/profile" class="block px-4 py-2 hover:bg-gray-100 text-sm">
-                        Mi cuenta
+                        {{ __('navbar.my_account') }}
                     </a>
-                    <a href="/logout" class="block px-4 py-2 hover:bg-gray-100 rounded-b-lg text-sm" >
-                      >
-                        Cerrar Sesión
+                    <a href="/logout" class="block px-4 py-2 hover:bg-gray-100 rounded-b-lg text-sm">
+                        {{ __('navbar.logout') }}
                     </a>
                     <form id="logout-form" action="" method="POST" style="display: none;">
                         @csrf
@@ -70,24 +71,44 @@
         </button>
         <img src="{{ asset('img/logoEtilesa.png') }}" alt="Etilesa Logo" class="h-16 mb-8">
         
-        <a href="/product-detail-page/quikipad" class="hover:text-gray-600 transition">Quikipad</a>
-        <a href="/sobre-nosotros" class="hover:text-gray-600 transition">Sobre Nosotros</a>
-        <a href="/products-page" class="hover:text-gray-600 transition">Comprar</a>
+        <a href="/product-detail-page/quikipad" class="hover:text-gray-600 transition">{{ __('navbar.quikipad') }}</a>
+        <a href="/sobre-nosotros" class="hover:text-gray-600 transition">@lang('navbar.about_us')</a>
+        <a href="/products-page" class="hover:text-gray-600 transition">@lang('navbar.buy')</a>
+        
+        <!-- Selector de idiomas para móvil -->
+        <div class="flex flex-col items-center space-y-3">
+            <div class="font-semibold">{{ __('navbar.language') }}</div>
+            <div class="flex gap-4">
+                @foreach(config('app.available_locales', [
+                    'es' => 'Español',
+                    'en' => 'English',
+                    'pl' => 'Polski',
+                    'cat' => 'Català',
+                ]) as $locale => $name)
+                    <button wire:click="$dispatch('switchLocale', {locale: '{{ $locale }}'})" class="hover:text-gray-600 transition flex flex-col items-center">
+                        <span class="inline-block w-8 h-6 rounded overflow-hidden mb-1">
+                            <img src="{{ asset('img/flags/' . $locale . '.png') }}" alt="{{ $name }}" class="w-full h-full object-cover">
+                        </span>
+                        <span class="text-xs">{{ strtoupper($locale) }}</span>
+                    </button>
+                @endforeach
+            </div>
+        </div>
         
         @guest
         <a href="{{ route('login') }}" class="bg-black text-white px-6 py-2 rounded-full shadow-md font-semibold hover:bg-gray-800 transition">
-            Iniciar Sesión
+            {{ __('navbar.login') }}
         </a>
         @endguest
 
         @auth
         <div class="flex flex-col items-center space-y-4">
             <div class="text-xl font-semibold">{{ auth()->user()->name }}</div>
-            <a href="/my-orders" class="hover:text-gray-600 transition">Mis Pedidos</a>
-            <a href="/profile" class="hover:text-gray-600 transition">Mi cuenta</a>
+            <a href="/my-orders" class="hover:text-gray-600 transition">{{ __('navbar.my_orders') }}</a>
+            <a href="/profile" class="hover:text-gray-600 transition">{{ __('navbar.my_account') }}</a>
             <a href="/logout" class="hover:text-gray-600 transition"
                onclick="event.preventDefault(); document.getElementById('mobile-logout-form').submit();">
-                Cerrar Sesión
+                {{ __('navbar.logout') }}
             </a>
             <form id="mobile-logout-form" action="" method="POST" style="display: none;">
                 @csrf
@@ -97,7 +118,7 @@
         
         <a href="/carrito" class="text-2xl flex items-center gap-2 hover:text-gray-600 transition">
             <i class="fa-solid fa-cart-shopping"></i>
-            <span class="py-1 px-2 rounded-full text-xs font-medium bg-purple-500 text-white">{{$this->total_count}}</span>
+            <span class="py-1 px-2 rounded-full text-xs font-medium bg-purple-500 text-white">{{$total_count}}</span>
         </a>
     </div>
 </header>
@@ -114,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const logo = document.getElementById("logo");
 
     // Define las rutas donde quieres que el navbar sea transparente
-    const transparentPages = ["/", , "/sobre-nosotros"]; // Añade aquí tus rutas específicas
+    const transparentPages = ["/", "/sobre-nosotros"]; // Añade aquí tus rutas específicas
     
     // Función para aplicar estilos según la página
     function applyNavbarStyles() {
@@ -140,8 +161,10 @@ document.addEventListener("DOMContentLoaded", function() {
         navbar.classList.remove("bg-white", "shadow-lg", "text-black");
         navbar.classList.add("bg-opacity-0", "text-white");
         navLinks.forEach(link => link.classList.remove("text-black"));
-        navButton.classList.remove("bg-white", "text-black", "border", "border-gray-300");
-        navButton.classList.add("bg-black", "text-white");
+        if (navButton) {
+            navButton.classList.remove("bg-white", "text-black", "border", "border-gray-300");
+            navButton.classList.add("bg-black", "text-white");
+        }
         burgerIcon.classList.remove("text-black");
         logo.classList.remove("text-black");
     }
@@ -151,8 +174,10 @@ document.addEventListener("DOMContentLoaded", function() {
         navbar.classList.add("bg-white", "shadow-lg", "text-black");
         navbar.classList.remove("bg-opacity-0", "text-white");
         navLinks.forEach(link => link.classList.add("text-black"));
-        navButton.classList.add("bg-white", "text-black", "border", "border-gray-300");
-        navButton.classList.remove("bg-black", "text-white");
+        if (navButton) {
+            navButton.classList.add("bg-white", "text-black", "border", "border-gray-300");
+            navButton.classList.remove("bg-black", "text-white");
+        }
         burgerIcon.classList.add("text-black");
         logo.classList.add("text-black");
     }

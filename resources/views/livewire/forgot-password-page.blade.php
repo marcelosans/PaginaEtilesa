@@ -20,10 +20,19 @@
             Introduce tu correo electrónico y te enviaremos un enlace para restablecer tu contraseña.
         </p>
         
-        <form>
+        @if (session('success'))
+            <div class="mb-6 p-4 bg-green-100 text-green-700 rounded-lg">
+                {{ session('success') }}
+            </div>
+        @endif
+        
+        <form wire:submit.prevent="save">
             <!-- Correo -->
             <div class="mb-6">
-                <input id="email" type="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Correo electrónico">
+                <input id="email" type="email" wire:model="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Correo electrónico">
+                @error('email')
+                    <span class="text-red-500 text-sm mt-1">{{ $message }}</span>
+                @enderror
             </div>
             
             <!-- Botón de enviar -->

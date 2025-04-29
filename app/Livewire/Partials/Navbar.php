@@ -21,6 +21,13 @@ class Navbar extends Component
         $this->total_count = $total_count;
     }
 
+    #[On('locale-changed')]
+    public function refreshAfterLocaleChange()
+    {
+        // Esta función se activará cuando cambie el idioma
+        // No necesitamos hacer nada específico, solo refrescar el componente
+    }
+
     public function render()
     {
         return view('livewire.partials.navbar');

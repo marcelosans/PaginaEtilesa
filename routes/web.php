@@ -15,8 +15,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Livewire\CheckoutPage;
 use App\Livewire\SuccessPage;
 use App\Livewire\MyOrderDetailPage;
-
-
+use App\Livewire\Profile;
 
 Route::get('/', HomePage::class);
 Route::get('/sobre-nosotros', SobreNostrosPage::class);
@@ -42,6 +41,7 @@ Route::middleware('auth')->group(function(){
     Route::get('/success',SuccessPage::class)->name('success');
     Route::get('/checkout',CheckoutPage::class);
     Route::get('/my-orders',MyOrdersPage::class);
+    Route::get('/profile',Profile::class);
     Route::get('/my-orders/{order_id}',MyOrderDetailPage::class)->name('my-orders.show');
 });
 

@@ -16,19 +16,27 @@
         
         <h2 class="text-lg font-medium text-center text-gray-700 mb-8">Restablecer contraseña</h2>
         
-        <form>
-            <!-- Email oculto (generalmente viene del token) -->
-            <input type="hidden" name="token" value="{{ $token ?? '' }}">
-            <input type="hidden" name="email" value="{{ $email ?? old('email') }}">
+        @if (session('error'))
+            <div class="mb-6 p-4 bg-red-100 text-red-700 rounded-lg">
+                {{ session('error') }}
+            </div>
+        @endif
+        
+        <form wire:submit.prevent="save">
+            <!-- Token y Email ocultos -->
+            <input type="hidden" wire:model="token" name="token">
             
             <!-- Nueva Contraseña -->
             <div class="mb-4">
-                <input id="password" type="password" name="password" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Nueva contraseña">
+                <input id="password" type="password" wire:model="password" name="password" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Nueva contraseña">
+                @error('password')
+                    <span class="text-red-500 text-sm mt-1">{{ $message }}</span>
+                @enderror
             </div>
             
             <!-- Confirmar Contraseña -->
             <div class="mb-6">
-                <input id="password_confirmation" type="password" name="password_confirmation" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Confirmar nueva contraseña">
+                <input id="password_confirmation" type="password" wire:model="password_confirmation" name="password_confirmation" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Confirmar nueva contraseña">
             </div>
             
             <!-- Botón de restablecer -->

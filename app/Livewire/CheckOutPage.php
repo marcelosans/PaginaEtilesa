@@ -110,7 +110,7 @@ class CheckOutPage extends Component
         $address->save();
         $order->items()->createMany($cart_items);
         CartManagement::clearItemsToCookie();
-        //Mail::to(request()->user())->send(new OrderPlaced($order));
+        Mail::to(request()->user())->send(new OrderPlaced($order));
         return redirect($redirect_url);
     }
 
