@@ -1,16 +1,16 @@
 <div class="container mt-[3em] mx-auto pt-8 pb-6 px-4 bg-gray-50 max-w-7xl">
-    <h1 class="text-2xl font-bold mb-4 text-black">Productos</h1>
+    <h1 class="text-2xl font-bold mb-4 text-black">@lang('products.products')</h1>
     
     <div class="flex flex-col md:flex-row gap-4">
         <!-- Sidebar con filtros -->
         <div class="w-full md:w-1/5">
             <div class="bg-white p-4 rounded-lg shadow-md border border-gray-200">
-                <h2 class="text-lg font-semibold mb-3 text-black">Filtros</h2>
+                <h2 class="text-lg font-semibold mb-3 text-black">@lang('products.filters')</h2>
                 
                 <form action="" method="GET">
                     <!-- Filtro de categorías -->
                     <div class="mb-4">
-                        <h3 class="font-medium mb-2 text-black text-sm">Categorías</h3>
+                        <h3 class="font-medium mb-2 text-black text-sm">@lang('products.categories')</h3>
                         <div class="space-y-1">
                             @foreach($categories as $category)
                             <div class="flex items-center">
@@ -27,7 +27,7 @@
                     <!-- Filtro de rango de precio con estilo similar a la imagen -->
                    <div class="mb-4">
     <div class="flex items-center justify-between mb-2">
-        <h3 class="font-medium text-black text-sm">Precio</h3>
+        <h3 class="font-medium text-black text-sm">@lang('products.price')</h3>
     </div>
     
     <!-- Slider de rango de precios -->
@@ -92,14 +92,14 @@
                     <h3 class="text-sm font-semibold mt-1 text-black">{{ $product->name }}</h3>
                     <p class="text-black text-xs mt-1 line-clamp-2">{{ $product->description }}</p>
                     <div class="mt-2 flex items-center justify-between">
-                        <span class="text-sm font-bold text-black">${{ number_format($product->price, 2) }}</span>
+                        <span class="text-sm font-bold text-black">{{ number_format($product->price, 2) }}€</span>
                     </div>
                     <br>
                     <!-- Botón en la parte inferior y con ancho completo -->
                     <a wire:click.prevent="addToCart({{ $product->id }})" href="#" class="bg-purple-600 text-white py-2 text-xs rounded-md hover:bg-purple-700 transition mt-auto w-full text-center">
-                        <span wire:loading.remove wire:target='addToCart({{ $product->id }})'>Añadir al Carrito</span>  <span wire:loading wire:target='addToCart({{ $product->id }})'>Añadiendo...</span>
+                        <span wire:loading.remove wire:target='addToCart({{ $product->id }})'>@lang('products.add_to_cart')</span>  
+                        <span wire:loading wire:target='addToCart({{ $product->id }})'>@lang('products.adding')</span>
                     </a>
-
                     
                 </div>
             </div>

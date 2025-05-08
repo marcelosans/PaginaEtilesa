@@ -8,9 +8,9 @@
     
             <!-- Menú de navegación en columna -->
             <nav class="flex flex-col items-center md:items-start space-y-2">
-                <a href="/sobre-nostros" class="hover:underline">Sobre Nosotros</a>
-                <a href="/products-page" class="hover:underline">Productos</a>
-                <a href="/product-detail-page/quikipad" class="hover:underline">Comprar QuikiPad</a>
+                <a href="/sobre-nostros" class="hover:underline">{{ __('footer.about_us') }}</a>
+                <a href="/products-page" class="hover:underline">{{ __('footer.products') }}</a>
+                <a href="/product-detail-page/quikipad" class="hover:underline">{{ __('footer.buy_quikipad') }}</a>
             </nav>
     
             <!-- Redes sociales en fila -->
@@ -26,7 +26,7 @@
         
         <!-- Copyright -->
         <div class="copy mt-8">
-            <p class="text-center text-gray-400 text-sm">© 2025 Etilesa. Todos los derechos reservados.</p>
+            <p class="text-center text-gray-400 text-sm">© {{ date('Y') }} Etilesa. {{ __('footer.all_rights_reserved') }}</p>
         </div>
     </footer>
     

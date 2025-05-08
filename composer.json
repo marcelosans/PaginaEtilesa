@@ -8,6 +8,7 @@
     "require": {
         "php": "^8.2",
         "arnoldwamae/livewire-alert": "^1.0",
+        "deeplcom/deepl-php": "^1.12",
         "filament/filament": "^3.2.57",
         "jantinnerezo/livewire-alert": "^3.0",
         "laravel/framework": "^11.31",

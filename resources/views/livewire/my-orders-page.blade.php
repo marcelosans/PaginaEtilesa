@@ -1,5 +1,5 @@
-<div class="w-full mt-[3em]  max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto">
-    <h1 class="text-4xl font-bold text-purple-800">Mis Pedidos</h1>
+<div class="w-full mt-3 max-w-7xl mt-9 py-10 px-4 sm:px-6 lg:px-8 mx-auto">
+    <h1 class="text-4xl font-bold text-purple-800">{{ __('orders.my_orders') }}</h1>
     <div class="flex flex-col bg-white p-5 rounded mt-4 shadow-lg">
         <div class="-m-1.5 overflow-x-auto">
             <div class="p-1.5 min-w-full inline-block align-middle">
@@ -7,12 +7,12 @@
                     <table class="min-w-full divide-y divide-gray-200">
                         <thead class="bg-purple-900">
                             <tr>
-                                <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-white uppercase">Pedido</th>
-                                <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-white uppercase">Fecha</th>
-                                <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-white uppercase">Estado del Pedido</th>
-                                <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-white uppercase">Estado de la facturacion</th>
-                                <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-white uppercase">Cantidad</th>
-                                <th scope="col" class="px-6 py-3 text-end text-xs font-medium text-white uppercase">Acciones</th>
+                                <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-white uppercase">{{ __('orders.order') }}</th>
+                                <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-white uppercase">{{ __('orders.date') }}</th>
+                                <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-white uppercase">{{ __('orders.order_status') }}</th>
+                                <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-white uppercase">{{ __('orders.payment_status') }}</th>
+                                <th scope="col" class="px-6 py-3 text-start text-xs font-medium text-white uppercase">{{ __('orders.amount') }}</th>
+                                <th scope="col" class="px-6 py-3 text-end text-xs font-medium text-white uppercase">{{ __('orders.actions') }}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -33,19 +33,19 @@
                                 ];
                         
                                 $status = match($order->status) {
-                                    'new' => 'New',
-                                    'processing' => 'Processing',
-                                    'shipped' => 'Shipped',
-                                    'delivered' => 'Delivered',
-                                    'cancelled' => 'Cancelled',
-                                    default => 'Unknown'
+                                    'new' => __('orders.status_new'),
+                                    'processing' => __('orders.status_processing'),
+                                    'shipped' => __('orders.status_shipped'),
+                                    'delivered' => __('orders.status_delivered'),
+                                    'cancelled' => __('orders.status_cancelled'),
+                                    default => __('orders.status_unknown')
                                 };
                         
                                 $paymentStatus = match($order->payment_status) {
-                                    'pending' => 'Pending',
-                                    'paid' => 'Paid',
-                                    'failed' => 'Canceled',
-                                    default => 'Unknown'
+                                    'pending' => __('orders.payment_pending'),
+                                    'paid' => __('orders.payment_paid'),
+                                    'failed' => __('orders.payment_cancelled'),
+                                    default => __('orders.payment_unknown')
                                 };
                             @endphp
                         
@@ -70,9 +70,9 @@
                                     {{ number_format($order->grand_total, 2) }}€
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
-                                    <a href="/my-orders/{{$order->order}}" 
+                                    <a href="/my-order-detail/{{$order->id}}" 
                                        class="bg-purple-700 text-white py-2 px-4 rounded-md hover:bg-purple-600 transition-colors">
-                                        Ver Detalles
+                                        {{ __('orders.view_details') }}
                                     </a>
                                 </td>
                             </tr>

@@ -42,7 +42,7 @@ Route::middleware('auth')->group(function(){
     Route::get('/checkout',CheckoutPage::class);
     Route::get('/my-orders',MyOrdersPage::class);
     Route::get('/profile',Profile::class);
-    Route::get('/my-orders/{order_id}',MyOrderDetailPage::class)->name('my-orders.show');
+    Route::get('/my-order-detail/{order_id}',MyOrderDetailPage::class)->name('my-orders.show');
 });
 
 
