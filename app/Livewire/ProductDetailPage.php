@@ -8,7 +8,7 @@ use App\Livewire\Partials\Navbar;
 use Illuminate\Support\Facades\App;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
-use DeepL\Translator;
+use Stichoza\GoogleTranslate\GoogleTranslate;
 
 class ProductDetailPage extends Component
 {
@@ -20,9 +20,6 @@ class ProductDetailPage extends Component
     public $translatedName = '';
     public $translatedDescription = '';
     public $isTranslating = false;
-
-    // La clave de API de DeepL
-    private $apiKey = "18ef9366-c1e9-415d-b6db-839ac5c2e9c3:fx";
 
     public function mount($slug)
     {
@@ -54,17 +51,10 @@ class ProductDetailPage extends Component
 
     public function translateText($text, $field)
     {
-        $idiomaDestino = strtoupper(App::getLocale());
+        $idiomaDestino = strtolower(App::getLocale());
 
-        if($idiomaDestino == 'EN')
-        {
-            $idiomaDestino = 'en-US';
-        }
-
-        //dd($idiomaDestino);
-        
         // Si el idioma es español, usamos el texto original
-        if ($idiomaDestino == 'ES') {
+        if ($idiomaDestino == 'es') {
             if ($field == 'name') {
                 $this->translatedName = $text;
             } else if ($field == 'description') {
@@ -73,29 +63,27 @@ class ProductDetailPage extends Component
             return;
         }
 
-        // Lista de códigos de idioma válidos para DeepL
-        $idiomasValidos = ['en-US','BG', 'CS', 'DA', 'DE', 'EL', 'EN', 'ES', 'ET', 'FI', 'FR', 'HU', 'ID', 'IT', 'JA', 'KO', 'LT', 'LV', 'NB', 'NL', 'PL', 'PT', 'RO', 'RU', 'SK', 'SL', 'SV', 'TR', 'UK', 'ZH'];
-
-        // Si el idioma no está en la lista, usamos inglés por defecto
-        if (!in_array($idiomaDestino, $idiomasValidos)) {
-            $idiomaDestino = 'en-US'; // Cambié 'ES' por 'EN' como fallback
+        // Manejar el caso especial para inglés
+        if ($idiomaDestino == 'en') {
+            $idiomaDestino = 'en';
         }
 
         try {
-            // Usar la librería DeepL PHP
-            $translator = new Translator($this->apiKey);
-            //dd($idiomaDestino);
-            $result = $translator->translateText($text, 'ES', $idiomaDestino);
+            // Usar la librería Stichoza Google Translate
+            $tr = new GoogleTranslate();
+            $tr->setSource('es'); // Idioma de origen (español)
+            $tr->setTarget($idiomaDestino); // Idioma de destino
 
-            if ($result) {
-                $traducido = $result->text;
+            $traducido = $tr->translate($text);
+            
+            if ($traducido) {
                 if ($field == 'name') {
                     $this->translatedName = $traducido;
                 } else if ($field == 'description') {
                     $this->translatedDescription = $traducido;
                 }
             } else {
-                
+                // Si falla la traducción, usar el texto original
                 if ($field == 'name') {
                     $this->translatedName = $text;
                 } else if ($field == 'description') {

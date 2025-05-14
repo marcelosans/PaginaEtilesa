@@ -19,7 +19,7 @@
                     <a href="/product-detail-page/quikipad" class="px-6 py-3 bg-white text-black rounded-full text-lg font-semibold shadow-lg hover:bg-gray-200 transition">
                         @lang('homepage.buy_quikipad')
                     </a>
-                    <a href="#" class="px-6 py-3 bg-gray-200 text-black rounded-full text-lg font-semibold shadow-lg hover:bg-gray-300 transition">
+                    <a href="/products-page" class="px-6 py-3 bg-gray-200 text-black rounded-full text-lg font-semibold shadow-lg hover:bg-gray-300 transition">
                         @lang('homepage.view_products')
                     </a>
                 </div>
