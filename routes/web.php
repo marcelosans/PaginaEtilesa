@@ -39,7 +39,7 @@ Route::middleware('auth')->group(function(){
          return redirect('/');
      });
     Route::get('/success',SuccessPage::class)->name('success');
-    Route::get('/checkout',CheckoutPage::class);
+    Route::get('/checkout',CheckOutPage::class);
     Route::get('/my-orders',MyOrdersPage::class);
     Route::get('/profile',Profile::class);
     Route::get('/my-order-detail/{order_id}',MyOrderDetailPage::class)->name('my-orders.show');
