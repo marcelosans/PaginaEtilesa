@@ -12,7 +12,7 @@ use App\Livewire\SobreNostrosPage;
 use App\Livewire\CartPage;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-use App\Livewire\CheckoutPage;
+use App\Livewire\CheckOutPage;
 use App\Livewire\SuccessPage;
 use App\Livewire\MyOrderDetailPage;
 use App\Livewire\Profile;
@@ -39,7 +39,7 @@ Route::middleware('auth')->group(function(){
          return redirect('/');
      });
     Route::get('/success',SuccessPage::class)->name('success');
-    Route::get('/checkout',CheckOutPage::class);
+    Route::get('/checkout',CheckoutPage::class);
     Route::get('/my-orders',MyOrdersPage::class);
     Route::get('/profile',Profile::class);
     Route::get('/my-order-detail/{order_id}',MyOrderDetailPage::class)->name('my-orders.show');
