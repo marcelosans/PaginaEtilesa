@@ -40,25 +40,6 @@
     </div>
     
     <!-- Slider de rango de precios -->
-    <div class="mb-3 px-1">
-        <input 
-            type="range" 
-            wire:model.live="min_price"
-            min="{{ $min_product_price }}" 
-            max="{{ $max_product_price }}" 
-            step="1"
-            class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-        >
-        <input 
-            type="range" 
-            wire:model.live="max_price"
-            min="{{ $min_product_price }}" 
-            max="{{ $max_product_price }}" 
-            step="1"
-            class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer -mt-2"
-        >
-    </div>
-    
     <!-- Campos de entrada de precios -->
     <div class="flex items-center space-x-2">
         <div class="w-1/2">

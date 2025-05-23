@@ -1,24 +1,23 @@
 <div class="w-full mt-[3em] max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto">
-	<h1 class="text-2xl font-bold text-purple-800 dark:text-purple-200 mb-4">
+	<h1 class="text-2xl font-bold text-purple-800 mb-4">
 		{{ __('checkout.payment') }}
 	</h1>
 	<div class="grid grid-cols-12 gap-4">
 		<div class="md:col-span-12 lg:col-span-8 col-span-12">
 			<!-- Card -->
-			<div class="bg-white rounded-xl shadow-lg p-4 sm:p-7 dark:bg-gray-900">
+			<div class="bg-white rounded-xl shadow-lg p-4 sm:p-7">
 				<!-- Shipping Address -->
 				<form wire:submit.prevent='placeOrder'>
 					<div class="mb-6">
-						<h2 class="text-xl font-bold underline text-purple-700 dark:text-purple-300 mb-2">
+						<h2 class="text-xl font-bold underline text-purple-700 mb-2">
 							{{ __('checkout.shipping_address') }}
 						</h2>
 						<div class="grid grid-cols-2 gap-4">
 							<div>
-								<label class="block text-purple-800 dark:text-purple-200 mb-1" for="first_name">
+								<label class="block text-purple-800 mb-1" for="first_name">
 									{{ __('checkout.first_name') }}
 								</label>
 								<input wire:model='first_name' class="w-full rounded-lg border border-purple-300 py-2 px-3 
-								dark:bg-gray-800 dark:text-white dark:border-purple-700 
 								@error('first_name') border-red-500 @enderror"  
 								id="first_name" type="text">
 								</input>
@@ -27,11 +26,10 @@
 								@enderror
 							</div>
 							<div>
-								<label class="block text-purple-800 dark:text-purple-200 mb-1" for="last_name">
+								<label class="block text-purple-800 mb-1" for="last_name">
 									{{ __('checkout.last_name') }}
 								</label>
 								<input wire:model='last_name' class="w-full rounded-lg border border-purple-300 py-2 px-3 
-								dark:bg-gray-800 dark:text-white dark:border-purple-700
 								@error('last_name') border-red-500 @enderror" 
 								id="last_name" type="text">
 								</input>
@@ -41,11 +39,10 @@
 							</div>
 						</div>
 						<div class="mt-4">
-							<label class="block text-purple-800 dark:text-purple-200 mb-1" for="phone">
+							<label class="block text-purple-800 mb-1" for="phone">
 								{{ __('checkout.phone') }}
 							</label>
 							<input wire:model='phone' class="w-full rounded-lg border border-purple-300 py-2 px-3 
-							dark:bg-gray-800 dark:text-white dark:border-purple-700
 							@error('phone') border-red-500 @enderror" 
 							id="phone" type="text">
 							</input>
@@ -54,11 +51,10 @@
 								@enderror
 						</div>
 						<div class="mt-4">
-							<label class="block text-purple-800 dark:text-purple-200 mb-1" for="address">
+							<label class="block text-purple-800 mb-1" for="address">
 								{{ __('checkout.address') }}
 							</label>
 							<input wire:model='street_address' class="w-full rounded-lg border border-purple-300 py-2 px-3 
-							dark:bg-gray-800 dark:text-white dark:border-purple-700
 							@error('street_address') border-red-500 @enderror" 
 							id="address" type="text">
 							</input>
@@ -67,11 +63,10 @@
 								@enderror
 						</div>
 						<div class="mt-4">
-							<label class="block text-purple-800 dark:text-purple-200 mb-1" for="city">
+							<label class="block text-purple-800 mb-1" for="city">
 								{{ __('checkout.city') }}
 							</label>
 							<input wire:model='city' class="w-full rounded-lg border border-purple-300 py-2 px-3 
-							dark:bg-gray-800 dark:text-white dark:border-purple-700
 							@error('city') border-red-500 @enderror" 
 							id="city" type="text">
 							</input>
@@ -81,11 +76,10 @@
 						</div>
 						<div class="grid grid-cols-2 gap-4 mt-4">
 							<div>
-								<label class="block text-purple-800 dark:text-purple-200 mb-1" for="state">
+								<label class="block text-purple-800 mb-1" for="state">
 									{{ __('checkout.state') }}
 								</label>
 								<select wire:model='state' class="w-full rounded-lg border border-purple-300 py-2 px-3 
-								dark:bg-gray-800 dark:text-white dark:border-purple-700
 								@error('state') border-red-500 @enderror" 
 								id="state">
 									<option value="">{{ __('checkout.select_state') }}</option>
@@ -145,11 +139,10 @@
 								@enderror
 							</div>
 							<div>
-								<label class="block text-purple-800 dark:text-purple-200 mb-1" for="zip">
+								<label class="block text-purple-800 mb-1" for="zip">
 									{{ __('checkout.zip_code') }}
 								</label>
 								<input wire:model='zip_code' class="w-full rounded-lg border border-purple-300 py-2 px-3 
-								dark:bg-gray-800 dark:text-white dark:border-purple-700
 								@error('zip_code') border-red-500 @enderror" 
 								id="zip" type="text">
 								</input>
@@ -159,7 +152,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="text-lg font-semibold mb-4 text-purple-800 dark:text-purple-200">
+					<div class="text-lg font-semibold mb-4 text-purple-800">
 						{{ __('checkout.payment_method') }}
 					</div>
 					<ul class="grid w-full gap-6 md:grid-cols-2">
@@ -167,9 +160,8 @@
 							<input wire:model='payment_method' class="hidden peer" id="hosting-big" type="radio" value="stripe">
 							<label class="inline-flex items-center justify-between w-full p-5 
 							text-purple-500 bg-white border border-purple-200 rounded-lg cursor-pointer 
-							dark:text-purple-400 dark:bg-gray-800 dark:border-purple-700 
 							peer-checked:border-purple-600 peer-checked:text-purple-600
-							hover:bg-purple-50 dark:hover:bg-purple-900" 
+							hover:bg-purple-50" 
 							for="hosting-big">
 								<div class="block">
 									<div class="w-full text-lg font-semibold">
@@ -190,11 +182,11 @@
 				<!-- End Card -->
 			</div>
 			<div class="md:col-span-12 lg:col-span-4 col-span-12">
-				<div class="bg-white rounded-xl shadow-lg p-4 sm:p-7 dark:bg-gray-900">
-					<div class="text-xl font-bold underline text-purple-700 dark:text-purple-300 mb-2">
+				<div class="bg-white rounded-xl shadow-lg p-4 sm:p-7">
+					<div class="text-xl font-bold underline text-purple-700 mb-2">
 						{{ __('checkout.order_summary') }}
 					</div>
-					<div class="flex justify-between mb-2 font-bold text-purple-800 dark:text-purple-200">
+					<div class="flex justify-between mb-2 font-bold text-purple-800">
 						<span>
 							{{ __('checkout.subtotal') }}
 						</span>
@@ -203,7 +195,7 @@
 						</span>
 					</div>
 					<hr class="bg-purple-300 my-4 h-1 rounded">
-					<div class="flex justify-between mb-2 font-bold text-purple-800 dark:text-purple-200">
+					<div class="flex justify-between mb-2 font-bold text-purple-800">
 						<span>
 							{{ __('checkout.total') }}
 						</span>
@@ -216,11 +208,11 @@
 					<span wire:loading.remove>{{ __('checkout.buy') }}</span>
 					<span wire:loading>{{ __('checkout.processing') }}</span>
 				</button>
-				<div class="bg-white mt-4 rounded-xl shadow-lg p-4 sm:p-7 dark:bg-gray-900">
-					<div class="text-xl font-bold underline text-purple-700 dark:text-purple-300 mb-2">
+				<div class="bg-white mt-4 rounded-xl shadow-lg p-4 sm:p-7">
+					<div class="text-xl font-bold underline text-purple-700 mb-2">
 						{{ __('checkout.cart_summary') }}
 					</div>
-					<ul class="divide-y divide-purple-200 dark:divide-purple-700" role="list">
+					<ul class="divide-y divide-purple-200" role="list">
 						@foreach ($cart_items as $ci)
 						<li class="py-3 sm:py-4" wire:key='{{$ci['product_id']}}'>
 							<div class="flex items-center">
@@ -229,14 +221,14 @@
 									</img>
 								</div>
 								<div class="flex-1 min-w-0 ms-4">
-									<p class="text-sm font-medium text-purple-900 truncate dark:text-purple-200">
+									<p class="text-sm font-medium text-purple-900 truncate">
 										{{$ci['name']}}
 									</p>
-									<p class="text-sm text-purple-500 truncate dark:text-purple-400">
+									<p class="text-sm text-purple-500 truncate">
 										{{ __('checkout.quantity') }}: {{$ci['quantity']}}
 									</p>
 								</div>
-								<div class="inline-flex items-center text-base font-semibold text-purple-900 dark:text-purple-200">
+								<div class="inline-flex items-center text-base font-semibold text-purple-900">
 									{{$ci['total_amount']}}€
 								</div>
 							</div>
