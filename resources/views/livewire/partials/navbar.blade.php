@@ -75,24 +75,10 @@
         <a href="/sobre-nosotros" class="hover:text-gray-600 transition">@lang('navbar.about_us')</a>
         <a href="/products-page" class="hover:text-gray-600 transition">@lang('navbar.buy')</a>
         
-        <!-- Selector de idiomas para móvil -->
+        <!-- Selector de idiomas para móvil con Livewire -->
         <div class="flex flex-col items-center space-y-3">
             <div class="font-semibold">{{ __('navbar.language') }}</div>
-            <div class="flex gap-4">
-                @foreach(config('app.available_locales', [
-                    'es' => 'Español',
-                    'en' => 'English',
-                    'pl' => 'Polski',
-                    'cat' => 'Català',
-                ]) as $locale => $name)
-                    <button wire:click="$dispatch('switchLocale', {locale: '{{ $locale }}'})" class="hover:text-gray-600 transition flex flex-col items-center">
-                        <span class="inline-block w-8 h-6 rounded overflow-hidden mb-1">
-                            <img src="{{ asset('img/flags/' . $locale . '.png') }}" alt="{{ $name }}" class="w-full h-full object-cover">
-                        </span>
-                        <span class="text-xs">{{ strtoupper($locale) }}</span>
-                    </button>
-                @endforeach
-            </div>
+            <livewire:language-switcher-mobile />
         </div>
         
         @guest
@@ -209,6 +195,13 @@ document.addEventListener("DOMContentLoaded", function() {
     closeMenu.addEventListener("click", function() {
         mobileMenu.classList.remove("translate-x-0");
         mobileMenu.classList.add("translate-x-full");
+    });
+
+    // Escuchar cambios de idioma para recargar la página
+    window.addEventListener('locale-changed', function() {
+        setTimeout(() => {
+            window.location.reload();
+        }, 100);
     });
 });
 </script>

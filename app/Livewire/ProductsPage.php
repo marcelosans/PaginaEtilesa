@@ -128,7 +128,6 @@ class ProductsPage extends Component
             $tr = new GoogleTranslate();
             $tr->setSource('es');
             $tr->setTarget($targetLocale === 'en' ? 'en' : strtolower($targetLocale));
-            
             $translated = $tr->translate($text);
             return $translated ?: $text;
         } catch (\Exception $e) {
