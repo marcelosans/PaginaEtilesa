@@ -14,30 +14,30 @@
             <img src="{{ asset('img/logoEtilesa.png') }}" alt="ETILESA" class="h-12">
         </div>
         
-        <h2 class="text-lg font-medium text-center text-gray-700 mb-8">Crear cuenta</h2>
+        <h2 class="text-lg font-medium text-center text-gray-700 mb-8">{{ __('register.title') }}</h2>
         
         <form wire:submit="register">
             <!-- Nombre -->
             <div class="mb-4">
-                <input wire:model="name" id="name" type="text" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Nombre completo">
+                <input wire:model="name" id="name" type="text" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="{{ __('register.name_placeholder') }}">
                 @error('name') <span class="text-red-500 text-sm mt-1">{{ $message }}</span> @enderror
             </div>
             
             <!-- Correo -->
             <div class="mb-4">
-                <input wire:model="email" id="email" type="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Correo electrónico">
+                <input wire:model="email" id="email" type="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="{{ __('register.email_placeholder') }}">
                 @error('email') <span class="text-red-500 text-sm mt-1">{{ $message }}</span> @enderror
             </div>
             
             <!-- Contraseña -->
             <div class="mb-4">
-                <input wire:model="password" id="password" type="password" name="password" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Contraseña">
+                <input wire:model="password" id="password" type="password" name="password" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="{{ __('register.password_placeholder') }}">
                 @error('password') <span class="text-red-500 text-sm mt-1">{{ $message }}</span> @enderror
             </div>
             
             <!-- Confirmar Contraseña -->
             <div class="mb-6">
-                <input wire:model="password_confirmation" id="password_confirmation" type="password" name="password_confirmation" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Confirmar contraseña">
+                <input wire:model="password_confirmation" id="password_confirmation" type="password" name="password_confirmation" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="{{ __('register.password_confirmation_placeholder') }}">
                 @error('password_confirmation') <span class="text-red-500 text-sm mt-1">{{ $message }}</span> @enderror
             </div>
             
@@ -56,14 +56,14 @@
             
             <!-- Botón de registro -->
             <button type="submit" class="w-full bg-purple-500 text-white py-3 px-4 rounded-full hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 transition duration-200">
-                Registrarse
+                {{ __('register.submit_button') }}
             </button>
         </form>
         
         <!-- Enlace de login -->
         <p class="text-center mt-6 text-sm text-gray-600">
-            ¿Ya tienes cuenta? 
-            <a href="/login" class="text-purple-500 hover:text-purple-700">Iniciar sesión</a>
+            {{ __('register.already_have_account') }} 
+            <a href="/login" class="text-purple-500 hover:text-purple-700">{{ __('register.login_link') }}</a>
         </p>
     </div>
 </div>

@@ -21,7 +21,7 @@ class SuccessPage extends Component
 
         if($this->session_id)
         {
-            Stripe::setApiKey(env('STRIPE_SECRET'));
+            Stripe::setApiKey(config('stripe.api_key'));
             $session_info = Session::retrieve($this->session_id);
 
             if($session_info->payment_status != 'paid')

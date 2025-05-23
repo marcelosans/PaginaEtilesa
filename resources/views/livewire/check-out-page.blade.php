@@ -1,6 +1,6 @@
 <div class="w-full mt-[3em] max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto">
 	<h1 class="text-2xl font-bold text-purple-800 dark:text-purple-200 mb-4">
-		Pago
+		{{ __('checkout.payment') }}
 	</h1>
 	<div class="grid grid-cols-12 gap-4">
 		<div class="md:col-span-12 lg:col-span-8 col-span-12">
@@ -10,12 +10,12 @@
 				<form wire:submit.prevent='placeOrder'>
 					<div class="mb-6">
 						<h2 class="text-xl font-bold underline text-purple-700 dark:text-purple-300 mb-2">
-							Dirección de Envio
+							{{ __('checkout.shipping_address') }}
 						</h2>
 						<div class="grid grid-cols-2 gap-4">
 							<div>
 								<label class="block text-purple-800 dark:text-purple-200 mb-1" for="first_name">
-									Nombre
+									{{ __('checkout.first_name') }}
 								</label>
 								<input wire:model='first_name' class="w-full rounded-lg border border-purple-300 py-2 px-3 
 								dark:bg-gray-800 dark:text-white dark:border-purple-700 
@@ -28,7 +28,7 @@
 							</div>
 							<div>
 								<label class="block text-purple-800 dark:text-purple-200 mb-1" for="last_name">
-									Apellido
+									{{ __('checkout.last_name') }}
 								</label>
 								<input wire:model='last_name' class="w-full rounded-lg border border-purple-300 py-2 px-3 
 								dark:bg-gray-800 dark:text-white dark:border-purple-700
@@ -42,7 +42,7 @@
 						</div>
 						<div class="mt-4">
 							<label class="block text-purple-800 dark:text-purple-200 mb-1" for="phone">
-								Telefono
+								{{ __('checkout.phone') }}
 							</label>
 							<input wire:model='phone' class="w-full rounded-lg border border-purple-300 py-2 px-3 
 							dark:bg-gray-800 dark:text-white dark:border-purple-700
@@ -55,7 +55,7 @@
 						</div>
 						<div class="mt-4">
 							<label class="block text-purple-800 dark:text-purple-200 mb-1" for="address">
-								Dirreccion
+								{{ __('checkout.address') }}
 							</label>
 							<input wire:model='street_address' class="w-full rounded-lg border border-purple-300 py-2 px-3 
 							dark:bg-gray-800 dark:text-white dark:border-purple-700
@@ -68,7 +68,7 @@
 						</div>
 						<div class="mt-4">
 							<label class="block text-purple-800 dark:text-purple-200 mb-1" for="city">
-								Ciudad
+								{{ __('checkout.city') }}
 							</label>
 							<input wire:model='city' class="w-full rounded-lg border border-purple-300 py-2 px-3 
 							dark:bg-gray-800 dark:text-white dark:border-purple-700
@@ -82,63 +82,63 @@
 						<div class="grid grid-cols-2 gap-4 mt-4">
 							<div>
 								<label class="block text-purple-800 dark:text-purple-200 mb-1" for="state">
-									Provincia
+									{{ __('checkout.state') }}
 								</label>
 								<select wire:model='state' class="w-full rounded-lg border border-purple-300 py-2 px-3 
 								dark:bg-gray-800 dark:text-white dark:border-purple-700
 								@error('state') border-red-500 @enderror" 
 								id="state">
-									<option value="">Selecciona una provincia</option>
-									<option value="Álava">Álava</option>
-									<option value="Albacete">Albacete</option>
-									<option value="Alicante">Alicante</option>
-									<option value="Almería">Almería</option>
-									<option value="Asturias">Asturias</option>
-									<option value="Ávila">Ávila</option>
-									<option value="Badajoz">Badajoz</option>
-									<option value="Barcelona">Barcelona</option>
-									<option value="Burgos">Burgos</option>
-									<option value="Cáceres">Cáceres</option>
-									<option value="Cádiz">Cádiz</option>
-									<option value="Cantabria">Cantabria</option>
-									<option value="Castellón">Castellón</option>
-									<option value="Ciudad Real">Ciudad Real</option>
-									<option value="Córdoba">Córdoba</option>
-									<option value="Cuenca">Cuenca</option>
-									<option value="Girona">Girona</option>
-									<option value="Granada">Granada</option>
-									<option value="Guadalajara">Guadalajara</option>
-									<option value="Guipúzcoa">Guipúzcoa</option>
-									<option value="Huelva">Huelva</option>
-									<option value="Huesca">Huesca</option>
-									<option value="Islas Baleares">Islas Baleares</option>
-									<option value="Jaén">Jaén</option>
-									<option value="La Coruña">La Coruña</option>
-									<option value="La Rioja">La Rioja</option>
-									<option value="Las Palmas">Las Palmas</option>
-									<option value="León">León</option>
-									<option value="Lleida">Lleida</option>
-									<option value="Lugo">Lugo</option>
-									<option value="Madrid">Madrid</option>
-									<option value="Málaga">Málaga</option>
-									<option value="Murcia">Murcia</option>
-									<option value="Navarra">Navarra</option>
-									<option value="Ourense">Ourense</option>
-									<option value="Palencia">Palencia</option>
-									<option value="Pontevedra">Pontevedra</option>
-									<option value="Salamanca">Salamanca</option>
-									<option value="Santa Cruz de Tenerife">Santa Cruz de Tenerife</option>
-									<option value="Segovia">Segovia</option>
-									<option value="Sevilla">Sevilla</option>
-									<option value="Soria">Soria</option>
-									<option value="Tarragona">Tarragona</option>
-									<option value="Teruel">Teruel</option>
-									<option value="Toledo">Toledo</option>
-									<option value="Valencia">Valencia</option>
-									<option value="Valladolid">Valladolid</option>
-									<option value="Vizcaya">Vizcaya</option>
-									<option value="Zamora">Zamora</option>
-									<option value="Zaragoza">Zaragoza</option>
+									<option value="">{{ __('checkout.select_state') }}</option>
+									<option value="Álava">{{ __('checkout.provinces.alava') }}</option>
+									<option value="Albacete">{{ __('checkout.provinces.albacete') }}</option>
+									<option value="Alicante">{{ __('checkout.provinces.alicante') }}</option>
+									<option value="Almería">{{ __('checkout.provinces.almeria') }}</option>
+									<option value="Asturias">{{ __('checkout.provinces.asturias') }}</option>
+									<option value="Ávila">{{ __('checkout.provinces.avila') }}</option>
+									<option value="Badajoz">{{ __('checkout.provinces.badajoz') }}</option>
+									<option value="Barcelona">{{ __('checkout.provinces.barcelona') }}</option>
+									<option value="Burgos">{{ __('checkout.provinces.burgos') }}</option>
+									<option value="Cáceres">{{ __('checkout.provinces.caceres') }}</option>
+									<option value="Cádiz">{{ __('checkout.provinces.cadiz') }}</option>
+									<option value="Cantabria">{{ __('checkout.provinces.cantabria') }}</option>
+									<option value="Castellón">{{ __('checkout.provinces.castellon') }}</option>
+									<option value="Ciudad Real">{{ __('checkout.provinces.ciudad_real') }}</option>
+									<option value="Córdoba">{{ __('checkout.provinces.cordoba') }}</option>
+									<option value="Cuenca">{{ __('checkout.provinces.cuenca') }}</option>
+									<option value="Girona">{{ __('checkout.provinces.girona') }}</option>
+									<option value="Granada">{{ __('checkout.provinces.granada') }}</option>
+									<option value="Guadalajara">{{ __('checkout.provinces.guadalajara') }}</option>
+									<option value="Guipúzcoa">{{ __('checkout.provinces.guipuzcoa') }}</option>
+									<option value="Huelva">{{ __('checkout.provinces.huelva') }}</option>
+									<option value="Huesca">{{ __('checkout.provinces.huesca') }}</option>
+									<option value="Islas Baleares">{{ __('checkout.provinces.islas_baleares') }}</option>
+									<option value="Jaén">{{ __('checkout.provinces.jaen') }}</option>
+									<option value="La Coruña">{{ __('checkout.provinces.la_coruna') }}</option>
+									<option value="La Rioja">{{ __('checkout.provinces.la_rioja') }}</option>
+									<option value="Las Palmas">{{ __('checkout.provinces.las_palmas') }}</option>
+									<option value="León">{{ __('checkout.provinces.leon') }}</option>
+									<option value="Lleida">{{ __('checkout.provinces.lleida') }}</option>
+									<option value="Lugo">{{ __('checkout.provinces.lugo') }}</option>
+									<option value="Madrid">{{ __('checkout.provinces.madrid') }}</option>
+									<option value="Málaga">{{ __('checkout.provinces.malaga') }}</option>
+									<option value="Murcia">{{ __('checkout.provinces.murcia') }}</option>
+									<option value="Navarra">{{ __('checkout.provinces.navarra') }}</option>
+									<option value="Ourense">{{ __('checkout.provinces.ourense') }}</option>
+									<option value="Palencia">{{ __('checkout.provinces.palencia') }}</option>
+									<option value="Pontevedra">{{ __('checkout.provinces.pontevedra') }}</option>
+									<option value="Salamanca">{{ __('checkout.provinces.salamanca') }}</option>
+									<option value="Santa Cruz de Tenerife">{{ __('checkout.provinces.santa_cruz_tenerife') }}</option>
+									<option value="Segovia">{{ __('checkout.provinces.segovia') }}</option>
+									<option value="Sevilla">{{ __('checkout.provinces.sevilla') }}</option>
+									<option value="Soria">{{ __('checkout.provinces.soria') }}</option>
+									<option value="Tarragona">{{ __('checkout.provinces.tarragona') }}</option>
+									<option value="Teruel">{{ __('checkout.provinces.teruel') }}</option>
+									<option value="Toledo">{{ __('checkout.provinces.toledo') }}</option>
+									<option value="Valencia">{{ __('checkout.provinces.valencia') }}</option>
+									<option value="Valladolid">{{ __('checkout.provinces.valladolid') }}</option>
+									<option value="Vizcaya">{{ __('checkout.provinces.vizcaya') }}</option>
+									<option value="Zamora">{{ __('checkout.provinces.zamora') }}</option>
+									<option value="Zaragoza">{{ __('checkout.provinces.zaragoza') }}</option>
 								</select>
 								@error('state')
 								<div class="text-red-500 text-sm">{{$message}}</div>
@@ -146,7 +146,7 @@
 							</div>
 							<div>
 								<label class="block text-purple-800 dark:text-purple-200 mb-1" for="zip">
-									Codigo Postal
+									{{ __('checkout.zip_code') }}
 								</label>
 								<input wire:model='zip_code' class="w-full rounded-lg border border-purple-300 py-2 px-3 
 								dark:bg-gray-800 dark:text-white dark:border-purple-700
@@ -160,7 +160,7 @@
 						</div>
 					</div>
 					<div class="text-lg font-semibold mb-4 text-purple-800 dark:text-purple-200">
-						Escoge Metodo de Pago
+						{{ __('checkout.payment_method') }}
 					</div>
 					<ul class="grid w-full gap-6 md:grid-cols-2">
 						<li>
@@ -173,7 +173,7 @@
 							for="hosting-big">
 								<div class="block">
 									<div class="w-full text-lg font-semibold">
-										Pago en Tarjeta
+										{{ __('checkout.card_payment') }}
 									</div>
 								</div>
 								<svg aria-hidden="true" class="w-5 h-5 ms-3 rtl:rotate-180" fill="none" viewbox="0 0 14 10" xmlns="http://www.w3.org/2000/svg">
@@ -192,11 +192,11 @@
 			<div class="md:col-span-12 lg:col-span-4 col-span-12">
 				<div class="bg-white rounded-xl shadow-lg p-4 sm:p-7 dark:bg-gray-900">
 					<div class="text-xl font-bold underline text-purple-700 dark:text-purple-300 mb-2">
-						RESUMEN DEL PEDIDO
+						{{ __('checkout.order_summary') }}
 					</div>
 					<div class="flex justify-between mb-2 font-bold text-purple-800 dark:text-purple-200">
 						<span>
-							Subtotal
+							{{ __('checkout.subtotal') }}
 						</span>
 						<span>
 						{{$grand_total}}€
@@ -205,7 +205,7 @@
 					<hr class="bg-purple-300 my-4 h-1 rounded">
 					<div class="flex justify-between mb-2 font-bold text-purple-800 dark:text-purple-200">
 						<span>
-							Total
+							{{ __('checkout.total') }}
 						</span>
 						<span>
 							{{$grand_total}}€
@@ -213,12 +213,12 @@
 					</div>
 				</div>
 				<button type="submit" class="bg-purple-600 mt-4 w-full p-3 rounded-lg text-lg text-white hover:bg-purple-700">
-					<span wire:loading.remove>Comprar</span>
-					<span wire:loading>Procesando...</span>
+					<span wire:loading.remove>{{ __('checkout.buy') }}</span>
+					<span wire:loading>{{ __('checkout.processing') }}</span>
 				</button>
 				<div class="bg-white mt-4 rounded-xl shadow-lg p-4 sm:p-7 dark:bg-gray-900">
 					<div class="text-xl font-bold underline text-purple-700 dark:text-purple-300 mb-2">
-						RESUMEN CARRITO
+						{{ __('checkout.cart_summary') }}
 					</div>
 					<ul class="divide-y divide-purple-200 dark:divide-purple-700" role="list">
 						@foreach ($cart_items as $ci)
@@ -233,7 +233,7 @@
 										{{$ci['name']}}
 									</p>
 									<p class="text-sm text-purple-500 truncate dark:text-purple-400">
-										Cantidad: {{$ci['quantity']}}
+										{{ __('checkout.quantity') }}: {{$ci['quantity']}}
 									</p>
 								</div>
 								<div class="inline-flex items-center text-base font-semibold text-purple-900 dark:text-purple-200">

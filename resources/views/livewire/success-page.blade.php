@@ -2,7 +2,8 @@
     <div class="justify-center flex-1 max-w-6xl px-4 py-4 mx-auto bg-white border rounded-md dark:border-purple-900 dark:bg-gray-900 md:py-10 md:px-10">
       <div>
         <h1 class="px-4 mb-8 text-2xl font-semibold tracking-wide text-purple-700 dark:text-purple-300">
-          Gracias, tu pedido ha sido recibido </h1>
+          {{ __('order.thank_you_message') }}
+        </h1>
         <div class="flex border-b border-purple-200 dark:border-purple-700 items-stretch justify-start w-full h-full px-4 mb-8 md:flex-row xl:flex-col md:space-x-6 lg:space-x-8 xl:space-x-0">
           <div class="flex items-start justify-start flex-shrink-0">
             <div class="flex items-center justify-center w-full pb-6 space-x-4 md:justify-start">
@@ -11,7 +12,7 @@
                   {{$order->address->full_name}}</p>
                 <p class="text-sm leading-4 text-purple-600 dark:text-purple-400">{{$order->address->street_address}}</p>
                 <p class="text-sm leading-4 text-purple-600 dark:text-purple-400">{{$order->address->city}}, {{$order->address->state}}, {{$order->address->zip_code}}</p>
-                <p class="text-sm leading-4 cursor-pointer dark:text-purple-400">Phone: {{$order->address->phone}}</p>
+                <p class="text-sm leading-4 cursor-pointer dark:text-purple-400">{{ __('order.phone') }}: {{$order->address->phone}}</p>
               </div>
             </div>
           </div>
@@ -19,46 +20,47 @@
         <div class="flex flex-wrap items-center pb-4 mb-10 border-b border-purple-200 dark:border-purple-700">
           <div class="w-full px-4 mb-4 md:w-1/4">
             <p class="mb-2 text-sm leading-5 text-purple-600 dark:text-purple-400">
-              Numero Pedido: </p>
+              {{ __('order.order_number') }}: </p>
             <p class="text-base font-semibold leading-4 text-purple-800 dark:text-purple-400">
               {{$order->id}}</p>
           </div>
           <div class="w-full px-4 mb-4 md:w-1/4">
             <p class="mb-2 text-sm leading-5 text-purple-600 dark:text-purple-400">
-              Fecha: </p>
+              {{ __('order.date') }}: </p>
             <p class="text-base font-semibold leading-4 text-purple-800 dark:text-purple-400">
              {{$order->created_at->format('d-m-Y')}}</p>
           </div>
           <div class="w-full px-4 mb-4 md:w-1/4">
             <p class="mb-2 text-sm font-medium leading-5 text-purple-800 dark:text-purple-400">
-              Total: </p>
+              {{ __('order.total') }}: </p>
             <p class="text-base font-semibold leading-4 text-purple-600 dark:text-purple-400">
               {{$order->grand_total}}€</p>
           </div>
           <div class="w-full px-4 mb-4 md:w-1/4">
             <p class="mb-2 text-sm leading-5 text-purple-600 dark:text-purple-400">
-              Metodo de Pago: </p>
+              {{ __('order.payment_method') }}: </p>
             <p class="text-base font-semibold leading-4 text-purple-800 dark:text-purple-400">
-              {{$order->payment_method == 'cod' ? 'Cash on Delivery' : 'Card'}} </p>
+              {{ $order->payment_method == 'cod' ? __('order.cash_on_delivery') : __('order.card') }}
+            </p>
           </div>
         </div>
         <div class="px-4 mb-10">
           <div class="flex flex-col items-stretch justify-center w-full space-y-4 md:flex-row md:space-y-0 md:space-x-8">
             <div class="flex flex-col w-full space-y-6 ">
-              <h2 class="mb-2 text-xl font-semibold text-purple-700 dark:text-purple-400">Detalles del pedido</h2>
+              <h2 class="mb-2 text-xl font-semibold text-purple-700 dark:text-purple-400">{{ __('order.order_details') }}</h2>
               <div class="flex flex-col items-center justify-center w-full pb-4 space-y-4 border-b border-purple-200 dark:border-purple-700">
                 <div class="flex justify-between w-full">
-                  <p class="text-base leading-4 text-purple-800 dark:text-purple-400">Subtotal</p>
+                  <p class="text-base leading-4 text-purple-800 dark:text-purple-400">{{ __('order.subtotal') }}</p>
                   <p class="text-base leading-4 text-purple-600 dark:text-purple-400">{{$order->grand_total}}€</p>
                 </div>
               </div>
               <div class="flex items-center justify-between w-full">
-                <p class="text-base font-semibold leading-4 text-purple-800 dark:text-purple-400">Total</p>
+                <p class="text-base font-semibold leading-4 text-purple-800 dark:text-purple-400">{{ __('order.total') }}</p>
                 <p class="text-base font-semibold leading-4 text-purple-600 dark:text-purple-400">{{$order->grand_total}}€</p>
               </div>
             </div>
             <div class="flex flex-col w-full px-2 space-y-4 md:px-8 ">
-              <h2 class="mb-2 text-xl font-semibold text-purple-700 dark:text-purple-400">Envio</h2>
+              <h2 class="mb-2 text-xl font-semibold text-purple-700 dark:text-purple-400">{{ __('order.shipping') }}</h2>
               <div class="flex items-start justify-between w-full">
                 <div class="flex items-center justify-center space-x-2">
                   <div class="w-8 h-8">
@@ -69,7 +71,7 @@
                   </div>
                   <div class="flex flex-col items-center justify-start">
                     <p class="text-lg font-semibold leading-6 text-purple-800 dark:text-purple-400">
-                      Envio<br><span class="text-sm font-normal">Envio en 24 Horas</span>
+                      {{ __('order.shipping') }}<br><span class="text-sm font-normal">{{ __('order.shipping_24h') }}</span>
                     </p>
                   </div>
                 </div>
@@ -79,10 +81,10 @@
         </div>
         <div class="flex items-center justify-start gap-4 px-4 mt-6 ">
           <a href="/products-page" class="w-full text-center px-4 py-2 text-purple-500 border border-purple-500 rounded-md md:w-auto hover:text-white hover:bg-purple-600 dark:border-purple-700 dark:hover:bg-purple-700 dark:text-purple-300">
-            Volver a comprar
+            {{ __('order.continue_shopping') }}
           </a>
           <a href="/my-orders" class="w-full text-center px-4 py-2 bg-purple-500 rounded-md text-gray-50 md:w-auto dark:text-purple-300 hover:bg-purple-600 dark:hover:bg-purple-700 dark:bg-gray-800">
-            Ver mis pedidos 
+            {{ __('order.view_my_orders') }}
           </a>
         </div>
       </div>

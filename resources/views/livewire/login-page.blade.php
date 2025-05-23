@@ -15,18 +15,18 @@
             <img src="{{ asset('img/logoEtilesa.png') }}" alt="ETILESA" class="h-12">
         </div>
         
-        <h2 class="text-lg font-medium text-center text-gray-700 mb-8">Iniciar Sesión</h2>
+        <h2 class="text-lg font-medium text-center text-gray-700 mb-8">{{ __('login.login_title') }}</h2>
         
         <form wire:submit="save">
             <!-- Correo -->
             <div class="mb-4">
-                <input wire:model="email" id="email" type="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Correo">
+                <input wire:model="email" id="email" type="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="{{ __('login.email_placeholder') }}">
                 @error('email') <span class="text-red-500 text-sm mt-1">{{ $message }}</span> @enderror
             </div>
             
             <!-- Contraseña -->
             <div class="mb-2">
-                <input wire:model="password" id="password" type="password" name="password" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Contraseña">
+                <input wire:model="password" id="password" type="password" name="password" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="{{ __('login.password_placeholder') }}">
                 @error('password') <span class="text-red-500 text-sm mt-1">{{ $message }}</span> @enderror
             </div>
             
@@ -39,19 +39,19 @@
             
             <!-- Enlace de olvido de contraseña -->
             <div class="mb-6">
-                <a href="#" class="text-sm text-gray-600 hover:text-purple-500">No recuerdas la contraseña</a>
+                <a href="/forgot-page" class="text-sm text-gray-600 hover:text-purple-500">{{ __('login.forgot_password') }}</a>
             </div>
             
             <!-- Botón de inicio de sesión -->
             <button type="submit" class="w-full bg-purple-500 text-white py-3 px-4 rounded-full hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 transition duration-200">
-                Inicia Sesión
+                {{ __('login.login_button') }}
             </button>
         </form>
         
         <!-- Enlace de registro -->
         <p class="text-center mt-6 text-sm text-gray-600">
-            ¿No tienes cuenta? 
-            <a href="/register" class="text-purple-500 hover:text-purple-700">Regístrate</a>
+            {{ __('login.no_account') }}
+            <a href="/register" class="text-purple-500 hover:text-purple-700">{{ __('login.register_link') }}</a>
         </p>
     </div>
 </div>

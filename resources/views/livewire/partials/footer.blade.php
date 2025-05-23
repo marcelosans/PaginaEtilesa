@@ -1,5 +1,5 @@
 <div>
-    <footer class="bg-white text-black py-8">
+    <footer class="bg-white text-black py-8 z-50">
         <div class="max-w-6xl mx-auto flex flex-col items-center md:items-start space-y-8 text-center md:text-left">
             <!-- Logo en columna -->
             <div>

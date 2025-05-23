@@ -24,6 +24,7 @@ class Navbar extends Component
     #[On('locale-changed')]
     public function refreshAfterLocaleChange()
     {
+        return redirect(request()->header('Referer'));
         // Esta función se activará cuando cambie el idioma
         // No necesitamos hacer nada específico, solo refrescar el componente
     }
