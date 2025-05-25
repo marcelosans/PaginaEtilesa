@@ -170,9 +170,9 @@
                                     class="w-full h-auto rounded-lg shadow-2xl" 
                                     controls 
                                     preload="metadata"
-                                    poster="{{ asset('img/game-poster.jpg') }}"
+                                    poster="{{ asset('img/captura2.png') }}"
                                     style="max-height: 400px;">
-                                    <source src="{{ asset('vid/aboutus.mp4') }}" type="video/mp4">
+                                    <source src="{{ asset('vid/etilesaVideo.mp4') }}" type="video/mp4">
                                     {{ __('about.video_not_supported') }}
                                 </video>
                                 
@@ -217,22 +217,22 @@
                     </h3>
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                         <div class="group relative overflow-hidden rounded-lg">
-                            <img src="{{ asset('img/quikipad2.jpg') }}" alt="Game Screenshot 1" 
+                            <img src="{{ asset('img/captura1.png') }}" alt="Game Screenshot 1" 
                                  class="w-full h-32 object-cover transition-transform duration-300 group-hover:scale-110">
                             <div class="absolute inset-0 bg-gradient-to-t from-purple-900/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         </div>
                         <div class="group relative overflow-hidden rounded-lg">
-                            <img src="{{ asset('img/quikipad2.jpg') }}" alt="Game Screenshot 2" 
+                            <img src="{{ asset('img/captura2.png') }}" alt="Game Screenshot 2" 
                                  class="w-full h-32 object-cover transition-transform duration-300 group-hover:scale-110">
                             <div class="absolute inset-0 bg-gradient-to-t from-purple-900/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         </div>
                         <div class="group relative overflow-hidden rounded-lg">
-                            <img src="{{ asset('img/quikipad2.jpg') }}" alt="Game Screenshot 3" 
+                            <img src="{{ asset('img/captura3.png') }}" alt="Game Screenshot 3" 
                                  class="w-full h-32 object-cover transition-transform duration-300 group-hover:scale-110">
                             <div class="absolute inset-0 bg-gradient-to-t from-purple-900/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         </div>
                         <div class="group relative overflow-hidden rounded-lg">
-                            <img src="{{ asset('img/quikipad2.jpg') }}" alt="Game Screenshot 4" 
+                            <img src="{{ asset('img/captura4.png') }}" alt="Game Screenshot 4" 
                                  class="w-full h-32 object-cover transition-transform duration-300 group-hover:scale-110">
                             <div class="absolute inset-0 bg-gradient-to-t from-purple-900/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         </div>
