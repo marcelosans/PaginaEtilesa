@@ -14,10 +14,10 @@
             <img src="{{ asset('img/logoEtilesa.png') }}" alt="ETILESA" class="h-12">
         </div>
         
-        <h2 class="text-lg font-medium text-center text-gray-700 mb-4">Recuperar contraseña</h2>
+        <h2 class="text-lg font-medium text-center text-gray-700 mb-4">{{ __('forgot-password.title') }}</h2>
         
         <p class="text-sm text-gray-600 text-center mb-8">
-            Introduce tu correo electrónico y te enviaremos un enlace para restablecer tu contraseña.
+            {{ __('forgot-password.description') }}
         </p>
         
         @if (session('success'))
@@ -29,7 +29,7 @@
         <form wire:submit.prevent="save">
             <!-- Correo -->
             <div class="mb-6">
-                <input id="email" type="email" wire:model="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Correo electrónico">
+                <input id="email" type="email" wire:model="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="{{ __('forgot-password.email_placeholder') }}">
                 @error('email')
                     <span class="text-red-500 text-sm mt-1">{{ $message }}</span>
                 @enderror
@@ -37,14 +37,14 @@
             
             <!-- Botón de enviar -->
             <button type="submit" class="w-full bg-purple-500 text-white py-3 px-4 rounded-full hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 transition duration-200">
-                Enviar enlace
+                {{ __('forgot-password.send_link') }}
             </button>
         </form>
         
         <!-- Enlace de login -->
         <p class="text-center mt-6 text-sm text-gray-600">
             <a href="/login" class="text-purple-500 hover:text-purple-700">
-                Volver a iniciar sesión
+                {{ __('forgot-password.back_to_login') }}
             </a>
         </p>
     </div>

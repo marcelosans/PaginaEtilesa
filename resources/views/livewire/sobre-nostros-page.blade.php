@@ -23,8 +23,8 @@
             </div>
             <!-- Imagen complementaria en el header -->
             <div class="md:w-1/2 mt-10 md:mt-0 flex justify-center">
-                <img src="{{ asset('img/about.png') }}" alt="Etilesa Console" 
-                    class="rounded-lg shadow-2xl max-w-full h-auto"
+                <img src="{{ asset('img/gamepad.png') }}" alt="Etilesa Console" 
+                    class="rounded-lg  max-w-full h-auto"
                     style="max-height: 450px;">
             </div>
         </section>

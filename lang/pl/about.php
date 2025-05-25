@@ -13,7 +13,7 @@ return [
     // Sekcja Kim Jesteśmy
     'who_we_are' => 'Kim Jesteśmy?',
     'who_we_are_text' => 'Jesteśmy Etilesa, pasjonującym zespołem zajmującym się tworzeniem gier wideo i niestandardowych konsol, które łączą to, co najlepsze w retrogamingu z obecnymi innowacjami technologicznymi.',
-    'who_we_are_extended' => 'Założona w 2018 roku, Etilesa narodziła się z marzeń grupy entuzjastów gier wideo i technologii, którzy chcieli stworzyć coś innego na rynku. Zaczynaliśmy od projektowania małych gier retro, a dziś mamy zróżnicowany katalog produktów i wyjątkowych doświadczeń.',
+    'who_we_are_extended' => 'Założona w 2025 roku, Etilesa narodziła się z marzeń grupy entuzjastów gier wideo i technologii, którzy chcieli stworzyć coś innego na rynku. Zaczynaliśmy od projektowania małych gier retro, a dziś mamy zróżnicowany katalog produktów i wyjątkowych doświadczeń.',
     'who_we_are_passion' => 'Nasza pasja do klasycznych i nowoczesnych gier wideo napędza nas do ciągłego eksperymentowania, łącząc mechaniki z przeszłości z technologicznymi możliwościami teraźniejszości. Każdy projekt to okazja do odkrywania nowych pomysłów i przełamywania granic kreatywności.',
     'who_we_are_team' => 'Nasz zespół składa się z programistów, projektantów graficznych, artystów dźwiękowych i entuzjastów sprzętu, wszystkich zjednoczonych miłością do świata gier wideo i zaangażowaniem w rzemieślniczą jakość w każdym szczególe naszych produktów.',
     

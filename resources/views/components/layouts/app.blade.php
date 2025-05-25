@@ -11,15 +11,15 @@
         @vite(['resources/css/app.css' , 'resources/js/app.js'])
         @livewireStyles
     </head>
-    <body class= "bg-gray-50 dark:bg-slate-700">
+    <body class= "bg-gray-50">
 
-        @if (!request()->is('login' ) && !request()->is('register') && !request()->is('forgot-password') && !request()->is('password-reset'))
+        @if (!request()->is('login' ) && !request()->is('register') && !request()->is('forgot-page') && !request()->is('password-reset'))
         @livewire('partials.navbar')
         @endif
         <main>
         {{ $slot }}
         </main>
-        @if (!request()->is('login') && !request()->is('register') && !request()->is('forgot-password') && !request()->is('password-reset')) 
+        @if (!request()->is('login') && !request()->is('register') && !request()->is('forgot-page') && !request()->is('password-reset')) 
         @livewire('partials.footer')
         @endif
         @livewireScripts

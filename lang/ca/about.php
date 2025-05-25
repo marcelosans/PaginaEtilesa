@@ -13,7 +13,7 @@ return [
     // Secció Qui Som
     'who_we_are' => 'Qui Som?',
     'who_we_are_text' => 'Som Etilesa, un equip apassionat dedicat a la creació de videojocs i consoles personalitzades que combinen el millor del retrogaming amb la innovació tecnològica actual.',
-    'who_we_are_extended' => 'Fundada el 2018, Etilesa va néixer del somni d\'un grup d\'entusiastes dels videojocs i la tecnologia que volien crear alguna cosa diferent al mercat. Vam començar dissenyant petits jocs retro i avui comptem amb un catàleg divers de productes i experiències úniques.',
+    'who_we_are_extended' => 'Fundada el 2025, Etilesa va néixer del somni d\'un grup d\'entusiastes dels videojocs i la tecnologia que volien crear alguna cosa diferent al mercat. Vam començar dissenyant petits jocs retro i avui comptem amb un catàleg divers de productes i experiències úniques.',
     'who_we_are_passion' => 'La nostra passió pels videojocs clàssics i moderns ens impulsa a experimentar constantment, fusionant les mecàniques del passat amb les possibilitats tecnològiques del present. Cada projecte és una oportunitat per explorar noves idees i desafiar els límits de la creativitat.',
     'who_we_are_team' => 'El nostre equip està format per programadors, dissenyadors gràfics, artistes de so i entusiastes del maquinari, tots units per l\'amor al món dels videojocs i el compromís amb la qualitat artesanal en cada detall dels nostres productes.',
     
@@ -63,7 +63,7 @@ return [
             'genre' => 'Gènere',
             'game_genre' => 'Acció/Estratègia',
             'platform' => 'Plataforma',
-            'game_platform' => 'PC/Web',
+            'game_platform' => 'Quikipad',
             'status' => 'Estat',
             'game_status' => 'En Desenvolupament',
             

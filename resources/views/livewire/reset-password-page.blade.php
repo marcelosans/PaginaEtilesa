@@ -14,7 +14,7 @@
             <img src="{{ asset('img/logoEtilesa.png') }}" alt="ETILESA" class="h-12">
         </div>
         
-        <h2 class="text-lg font-medium text-center text-gray-700 mb-8">Restablecer contraseña</h2>
+        <h2 class="text-lg font-medium text-center text-gray-700 mb-8">{{ __('reset-password.title') }}</h2>
         
         @if (session('error'))
             <div class="mb-6 p-4 bg-red-100 text-red-700 rounded-lg">
@@ -28,7 +28,7 @@
             
             <!-- Nueva Contraseña -->
             <div class="mb-4">
-                <input id="password" type="password" wire:model="password" name="password" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Nueva contraseña">
+                <input id="password" type="password" wire:model="password" name="password" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="{{ __('reset-password.password_placeholder') }}">
                 @error('password')
                     <span class="text-red-500 text-sm mt-1">{{ $message }}</span>
                 @enderror
@@ -36,19 +36,19 @@
             
             <!-- Confirmar Contraseña -->
             <div class="mb-6">
-                <input id="password_confirmation" type="password" wire:model="password_confirmation" name="password_confirmation" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Confirmar nueva contraseña">
+                <input id="password_confirmation" type="password" wire:model="password_confirmation" name="password_confirmation" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="{{ __('reset-password.password_confirmation_placeholder') }}">
             </div>
             
             <!-- Botón de restablecer -->
             <button type="submit" class="w-full bg-purple-500 text-white py-3 px-4 rounded-full hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50 transition duration-200">
-                Restablecer contraseña
+                {{ __('reset-password.reset_button') }}
             </button>
         </form>
         
         <!-- Enlace de login -->
         <p class="text-center mt-6 text-sm text-gray-600">
             <a href="/login" class="text-purple-500 hover:text-purple-700">
-                Volver a iniciar sesión
+                {{ __('reset-password.back_to_login') }}
             </a>
         </p>
     </div>

@@ -81,9 +81,9 @@
             </button>
             <input 
                 type="number" 
-                wire:model.live="quantity" 
+                wire:model="quantity" 
                 min="1" 
-                class="w-12 h-8 text-center border-t border-b border-gray-300 text-sm focus:outline-none"
+                class="w-12 h-8 text-center  border-t border-b border-gray-300 text-sm focus:outline-none"
             >
             <button wire:click="increaseQty" class="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-r-md bg-gray-100 hover:bg-gray-200">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

@@ -1,16 +1,16 @@
-<div class="container mt-[3em] mx-auto pt-8 pb-6 px-4 bg-gray-50 max-w-7xl">
-    <h1 class="text-2xl font-bold mb-4 text-black">@lang('products.products')</h1>
+<div class="container mt-[3em] mx-auto pt-8 pb-6 px-4 bg-white max-w-7xl">
+    <h1 class="text-2xl font-bold mb-4 text-gray-900">@lang('products.products')</h1>
     
     <div class="flex flex-col md:flex-row gap-4">
         <!-- Sidebar con filtros -->
         <div class="w-full md:w-1/5">
             <div class="bg-white p-4 rounded-lg shadow-md border border-gray-200">
-                <h2 class="text-lg font-semibold mb-3 text-black">@lang('products.filters')</h2>
+                <h2 class="text-lg font-semibold mb-3 text-gray-900">@lang('products.filters')</h2>
                 
                 <form action="" method="GET">
                     <!-- Filtro de categorías -->
                     <div class="mb-4">
-                        <h3 class="font-medium mb-2 text-black text-sm">@lang('products.categories')</h3>
+                        <h3 class="font-medium mb-2 text-gray-900 text-sm">@lang('products.categories')</h3>
                         <div class="space-y-1">
                             @foreach($categories as $category)
                             <div class="flex items-center">
@@ -18,7 +18,7 @@
                                        value="{{ $category->id }}"
                                        wire:model.live="selected_categories"
                                        class="mr-2">
-                                <label for="category{{ $category->id }}" class="text-black text-sm">
+                                <label for="category{{ $category->id }}" class="text-gray-700 text-sm">
                                     @if(isset($translatedCategories[$category->id]))
                                         {{ $translatedCategories[$category->id] }}
                                     @else
@@ -36,7 +36,7 @@
                     <!-- Filtro de rango de precio -->
                    <div class="mb-4">
     <div class="flex items-center justify-between mb-2">
-        <h3 class="font-medium text-black text-sm">@lang('products.price')</h3>
+        <h3 class="font-medium text-gray-900 text-sm">@lang('products.price')</h3>
     </div>
     
     <!-- Slider de rango de precios -->
@@ -48,17 +48,17 @@
                 wire:model.live="min_price" 
                 min="{{ $min_product_price }}"
                 max="{{ $max_product_price }}"
-                class="w-full border border-gray-300 rounded-md px-2 py-1 text-center text-black text-sm focus:outline-none focus:ring-1 focus:ring-purple-500"
+                class="w-full border border-gray-300 rounded-md px-2 py-1 text-center text-gray-900 text-sm focus:outline-none focus:ring-1 focus:ring-purple-500"
             >
         </div>
-        <div class="text-black text-sm">—</div>
+        <div class="text-gray-900 text-sm">—</div>
         <div class="w-1/2">
             <input 
                 type="number" 
                 wire:model.live="max_price" 
                 min="{{ $min_product_price }}"
                 max="{{ $max_product_price }}"
-                class="w-full border border-gray-300 rounded-md px-2 py-1 text-center text-black text-sm focus:outline-none focus:ring-1 focus:ring-purple-500"
+                class="w-full border border-gray-300 rounded-md px-2 py-1 text-center text-gray-900 text-sm focus:outline-none focus:ring-1 focus:ring-purple-500"
             >
         </div>
     </div>
@@ -78,7 +78,7 @@
                     </a>
                     <div class="p-3 flex flex-col flex-grow">
                         <!-- Nombre del producto -->
-                        <h3 class="text-sm font-semibold mt-1 text-black" 
+                        <h3 class="text-sm font-semibold mt-1 text-gray-900" 
                             wire:key="product-name-{{ $product->id }}">
                             @if(isset($translatedProducts[$product->id]['name']))
                                 {{ $translatedProducts[$product->id]['name'] }}
@@ -91,7 +91,7 @@
                         </h3>
                         
                         <!-- Descripción del producto -->
-                        <p class="text-black text-xs mt-1 line-clamp-2" 
+                        <p class="text-gray-700 text-xs mt-1 line-clamp-2" 
                            wire:key="product-desc-{{ $product->id }}">
                             @if(isset($translatedProducts[$product->id]['description']))
                                 {{ $translatedProducts[$product->id]['description'] }}
@@ -104,7 +104,7 @@
                         </p>
                         
                         <div class="mt-2 flex items-center justify-between">
-                            <span class="text-sm font-bold text-black">{{ number_format($product->price, 2) }}€</span>
+                            <span class="text-sm font-bold text-gray-900">{{ number_format($product->price, 2) }}€</span>
                         </div>
                         <br>
                         <!-- Botón añadir al carrito -->

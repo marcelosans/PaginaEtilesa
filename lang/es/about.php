@@ -13,7 +13,7 @@ return [
     // Sección Quiénes Somos
     'who_we_are' => '¿Quiénes Somos?',
     'who_we_are_text' => 'Somos Etilesa, un equipo apasionado dedicado a la creación de videojuegos y consolas personalizadas que combinan lo mejor del retrogaming con la innovación tecnológica actual.',
-    'who_we_are_extended' => 'Fundada en 2018, Etilesa nació del sueño de un grupo de entusiastas de los videojuegos y la tecnología que querían crear algo diferente en el mercado. Comenzamos diseñando pequeños juegos retro y hoy contamos con un catálogo diverso de productos y experiencias únicas.',
+    'who_we_are_extended' => 'Fundada en 2025, Etilesa nació del sueño de un grupo de entusiastas de los videojuegos y la tecnología que querían crear algo diferente en el mercado. Comenzamos diseñando pequeños juegos retro y hoy contamos con un catálogo diverso de productos y experiencias únicas.',
     'who_we_are_passion' => 'Nuestra pasión por los videojuegos clásicos y modernos nos impulsa a experimentar constantemente, fusionando las mecánicas del pasado con las posibilidades tecnológicas del presente. Cada proyecto es una oportunidad para explorar nuevas ideas y desafiar los límites de la creatividad.',
     'who_we_are_team' => 'Nuestro equipo está formado por programadores, diseñadores gráficos, artistas de sonido y entusiastas del hardware, todos unidos por el amor al mundo de los videojuegos y el compromiso con la calidad artesanal en cada detalle de nuestros productos.',
     
