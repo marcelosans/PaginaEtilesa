@@ -1,32 +1,32 @@
 <?php
 return [
     // Títulos y cabeceras
-    'order_details' => 'Detalls de la Comanda',
-    'client' => 'Client',
-    'order_date' => 'Data de la Comanda',
-    'order_status' => 'Estat de la Comanda',
-    'payment_status' => 'Estat del Pagament',
-    
-    // Estados del pedido
-    'status_new' => 'Nova',
-    'status_processing' => 'En Procés',
-    'status_shipped' => 'Enviada',
-    'status_delivered' => 'Entregada',
-    'status_cancelled' => 'Cancel·lada',
-    
-    // Estados del pago
-    'payment_pending' => 'Pendent',
-    'payment_paid' => 'Pagat',
-    'payment_cancelled' => 'Cancel·lat',
-    
-    // Detalles del pedido
-    'product' => 'Producte',
-    'price' => 'Preu',
-    'quantity' => 'Quantitat',
-    'total' => 'Total',
-    'shipping_address' => 'Adreça d\'Enviament',
-    'phone' => 'Telèfon',
-    'summary' => 'Resum',
-    'subtotal' => 'Subtotal',
-    'grand_total' => 'Total General',
+   'order_details' => 'Szczegóły zamówienia',
+'klient' => 'Klient',
+'order_date' => 'Data zamówienia',
+'order_status' => 'Status zamówienia',
+'payment_status' => 'Status płatności',
+
+// Statusy zamówień
+'status_new' => 'Nowy',
+'status_processing' => 'Przetwarzanie',
+'status_shipped' => 'Wysłano',
+'status_delivered' => 'Dostarczono',
+'status_cancelled' => 'Anulowano',
+
+// Status płatności
+'payment_pending' => 'Oczekujące',
+'payment_paid' => 'Zapłacono',
+'payment_cancelled' => 'Anulowano',
+
+// Szczegóły zamówienia
+'produkt' => 'Produkt',
+'cena' => 'Cena',
+'ilość' => 'Ilość',
+'całkowity' => 'Całkowity',
+'shipping_address' => 'Adres wysyłki',
+'telefon' => 'Telefon',
+'podsumowanie' => 'Podsumowanie',
+'subtotal' => 'Suma częściowa',
+'grand_total' => 'Suma całkowita',
 ];
