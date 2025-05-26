@@ -1,7 +1,7 @@
 <?php
 return [
     // Títulos y cabeceras
-   'order_details' => 'Szczegóły zamówienia',
+'order_details' => 'Szczegóły zamówienia',
 'klient' => 'Klient',
 'order_date' => 'Data zamówienia',
 'order_status' => 'Status zamówienia',
@@ -20,13 +20,13 @@ return [
 'payment_cancelled' => 'Anulowano',
 
 // Szczegóły zamówienia
-'produkt' => 'Produkt',
-'cena' => 'Cena',
-'ilość' => 'Ilość',
-'całkowity' => 'Całkowity',
+'product' => 'Produkt',
+'price' => 'Cena',
+'quantity' => 'Ilość',
+'total' => 'Całkowity',
 'shipping_address' => 'Adres wysyłki',
-'telefon' => 'Telefon',
-'podsumowanie' => 'Podsumowanie',
+'phone' => 'Telefon',
+'summary' => 'Podsumowanie',
 'subtotal' => 'Suma częściowa',
 'grand_total' => 'Suma całkowita',
 ];
